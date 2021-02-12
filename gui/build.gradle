@@ -12,6 +12,8 @@ javafx {
 
 tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
 
+//sourceCompatibility = 1.11
+
 repositories {
     mavenCentral()
 }
