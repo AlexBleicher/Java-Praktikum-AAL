@@ -13,8 +13,16 @@ Serverkompatibilität (über Rest)
 Aufteilung im Team:
 
 GUI
+*Startapp
+*Spiel
 Test
 Backend
+*Startapp
+*Spiel
+    #Spieler
+    #Spiellogik
+    #Würfel
+    #Spielbrett
 
 Teamleitung: Alexander Bleicher
 Repository auf Github (Alexander Bleicher)
@@ -28,7 +36,9 @@ Welche Anwendungsfälle sind enthalten?
 „Als <Spiellogik> muss ich <das Ziel> auslesen, <um zu wissen, ob das Spiel beendet ist>“
 „Als <Spiellogik> muss ich die <Anzahl der Spieler> kennen, um eine <Spielerliste> zu erstellen“
 „Als <GUI> muss ich <die Spiellogik> kennen, <um es richtig darstellen zu können>“
-
+„Als <GUI> muss ich <die Startfunktionen> einlesen, um sie an <die Spiellogik> weiterzuleiten.“
+"Als <Startfunktion> muss ich <die GUI des eigentlichen Spiels> starten, <um das Spiel zu beginnen>"
+"Als <Startfunktion> muss ich <die Anzahl der Spieler> einlesen können, um <die Spiellogik richtig zu befüllen>"
 
 
 
