@@ -7,5 +7,4 @@ bin/
 
 .gradle/
 .idea/
-gradle/
 **/build/
