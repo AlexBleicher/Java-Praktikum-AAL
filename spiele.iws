@@ -22,14 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4dcd9bbd-fc5a-4871-a7ae-bc8ca745a998" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Java-Praktikum-AAL.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/core/core.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/gui/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/gui.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gui/gui.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spiele.iml" beforeDir="false" />
+    <list default="true" id="4dcd9bbd-fc5a-4871-a7ae-bc8ca745a998" name="Default Changelist" comment="Planung">
+      <change beforePath="$PROJECT_DIR$/Java-Praktikum-AAL.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/core.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/gui.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spiele.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/spiele.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spiele.iws" beforeDir="false" afterPath="$PROJECT_DIR$/spiele.iws" afterDir="false" />
     </list>
@@ -134,10 +131,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -179,17 +176,6 @@
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -244,8 +230,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1613125571966</updated>
-      <workItem from="1613125573312" duration="2305000" />
+      <workItem from="1613125573312" duration="3746000" />
+      <workItem from="1613135213380" duration="123000" />
+      <workItem from="1613135385486" duration="462000" />
+      <workItem from="1613135874923" duration="636000" />
     </task>
+    <task id="LOCAL-00001" summary="Planung">
+      <created>1613133401652</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1613133401652</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,9 +258,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <MESSAGE value="Planung" />
+    <option name="LAST_COMMIT_MESSAGE" value="Planung" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -271,25 +271,37 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1613126272910" />
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1613126350337">
+    <state x="442" y="95" key="FileChooserDialogImpl" timestamp="1613135898893">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1613126350337" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1613126350337">
+    <state x="442" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1613135898893" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1613135184194">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1613126350337" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1613126350337">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1613135184194" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1613135184193">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1613126350337" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1613126350337">
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1613135184193" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1613135184192">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1613126350337" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1613126319767">
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1613135184192" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1613135184193">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1613126319767" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1613135184193" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1613135907273">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1613135907273" />
+    <state x="233" y="61" key="Vcs.Push.Dialog.v2" timestamp="1613133403589">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="61" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1613133403589" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613133674832">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1613133674832" />
   </component>
 </project>
