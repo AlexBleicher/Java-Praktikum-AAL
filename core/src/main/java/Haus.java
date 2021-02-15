@@ -7,4 +7,11 @@ public class Haus {
     private Feld startFeld;
     private List<Figur> enthalteneFiguren = new ArrayList<>();
 
+    public void setSpieler(Spieler spieler) {
+        this.spieler = spieler;
+    }
+
+    public void addFigur(Figur f){
+        enthalteneFiguren.add(f);
+    }
 }
