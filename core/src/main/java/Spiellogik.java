@@ -4,13 +4,12 @@ import java.util.List;
 public class Spiellogik {
 
 
-    private List<Spieler> spielerList=new ArrayList<>();
+    private List<Spieler> spielerList = new ArrayList<>();
 
-    public void addSpieler(Spieler p){
-        if(spielerList.size()<4) {
+    public void addSpieler(Spieler p) {
+        if (spielerList.size() < 4) {
             spielerList.add(p);
-        }
-        else{
+        } else {
             System.out.println("Fehler!");
         }
     }

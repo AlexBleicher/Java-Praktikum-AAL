@@ -6,12 +6,12 @@ public class LogikStart {
         this.spiellogik = spiellogik;
     }
 
-    public void spielerErstellen(String name){
-        Spieler neuerSpieler=new Spieler(name);
+    public void spielerErstellen(String name) {
+        Spieler neuerSpieler = new Spieler(name);
         spiellogik.addSpieler(neuerSpieler);
     }
 
-    public void spielStarten(){
+    public void spielStarten() {
 
     }
 }
