@@ -2,8 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Spiellogik {
-    
+
     private List<Spieler> spielerList=new ArrayList<>();
+
+    public List<Spieler> getSpielerList() {
+        return spielerList;
+    }
 
     public void addSpieler(Spieler p){
         if(spielerList.size()<4) {
