@@ -20,6 +20,6 @@ public class GUIController {
     }
 
     public void starten(ActionEvent actionEvent) {
-        // Starten der eigentlichen Methode
+        // Starten des Spiels
     }
 }
