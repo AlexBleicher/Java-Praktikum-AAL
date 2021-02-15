@@ -1,6 +1,4 @@
-package Spiel;
-
-import Spiel.Feld;
+package de.aal.spiel.core;
 
 public class Figur {
 

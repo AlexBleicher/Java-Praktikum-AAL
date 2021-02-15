@@ -1,7 +1,4 @@
-package Spiel;
-
-import Spiel.Feld;
-import Spiel.Figur;
+package de.aal.spiel.core;
 
 import java.util.ArrayList;
 import java.util.List;

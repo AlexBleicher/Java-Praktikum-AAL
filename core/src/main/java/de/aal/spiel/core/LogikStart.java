@@ -1,4 +1,4 @@
-package Spiel;
+package de.aal.spiel.core;
 
 public class LogikStart {
 
