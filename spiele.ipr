@@ -105,7 +105,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/Startseite" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/gui" />
             <option value="$PROJECT_DIR$/server" />
@@ -133,7 +132,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/spiele.iml" filepath="$PROJECT_DIR$/spiele.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Startseite/spiele.Startseite.test.iml" filepath="$PROJECT_DIR$/Startseite/spiele.Startseite.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/spiele.core.iml" filepath="$PROJECT_DIR$/core/spiele.core.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/spiele.core.main.iml" filepath="$PROJECT_DIR$/core/spiele.core.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/spiele.core.test.iml" filepath="$PROJECT_DIR$/core/spiele.core.test.iml" />
