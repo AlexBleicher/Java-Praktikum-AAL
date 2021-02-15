@@ -3,4 +3,5 @@ rootProject.name = 'spiele'
 include 'core'
 include 'gui'
 include 'server'
+include 'Startseite'
 
