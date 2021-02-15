@@ -31,6 +31,7 @@ public class SpielManager {
                 neuesHaus.addFigur(neueFigur);
             }
         }
+        spielbrett.bereiteFeld();
         starter=spiellogik.getSpielerList().get((int) (Math.random()*(spiellogik.getSpielerList().size()-1))+1);
     }
 
