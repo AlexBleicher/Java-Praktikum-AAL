@@ -1,7 +1,5 @@
 package de.aal.spiel.core;
 
-import Spiel.*;
-
 import java.util.ArrayList;
 import java.util.List;
 

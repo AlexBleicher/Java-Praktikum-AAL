@@ -1,3 +1,6 @@
+import de.aal.spiel.core.LogikStart;
+import de.aal.spiel.core.SpielManager;
+import de.aal.spiel.core.Spiellogik;
 import org.junit.*;
 
 public class LogikStartTest{
@@ -6,7 +9,8 @@ public class LogikStartTest{
     public void spielerErstellen() {
 
         Spiellogik spiellogik = new Spiellogik();
-        LogikStart logikStart = new LogikStart(spiellogik);
+        SpielManager spielManager = new SpielManager();
+        LogikStart logikStart = new LogikStart(spiellogik, spielManager);
 
         logikStart.spielerErstellen("Hans");
 
