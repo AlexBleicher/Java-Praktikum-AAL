@@ -3,7 +3,6 @@ import java.util.List;
 
 public class Spiellogik {
 
-
     private List<Spieler> spielerList = new ArrayList<>();
 
     public void addSpieler(Spieler p) {
@@ -12,5 +11,9 @@ public class Spiellogik {
         } else {
             System.out.println("Fehler!");
         }
+    }
+
+    public List<Spieler> getSpielerList() {
+        return spielerList;
     }
 }
