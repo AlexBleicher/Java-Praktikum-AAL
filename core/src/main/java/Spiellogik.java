@@ -3,6 +3,10 @@ import java.util.List;
 
 public class Spiellogik {
 
-    private int anzahlSpieler;
+
     private List<Spieler> spielerList=new ArrayList<>();
+
+    public void addSpieler(Spieler p){
+        spielerList.add(p);
+    }
 }

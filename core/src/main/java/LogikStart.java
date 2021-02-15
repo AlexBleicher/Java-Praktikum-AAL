@@ -6,7 +6,8 @@ public class LogikStart {
         this.spiellogik = spiellogik;
     }
 
-    public void anzahlSpielerSetzen(){
-
+    public void spielerErstellen(String name){
+        Spieler neuerSpieler=new Spieler(name);
+        spiellogik.addSpieler(neuerSpieler);
     }
 }
