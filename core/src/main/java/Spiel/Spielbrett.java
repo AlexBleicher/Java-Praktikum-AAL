@@ -1,3 +1,8 @@
+package Spiel;
+
+import Spiel.Feld;
+import Spiel.Haus;
+
 import java.util.ArrayList;
 import java.util.List;
 

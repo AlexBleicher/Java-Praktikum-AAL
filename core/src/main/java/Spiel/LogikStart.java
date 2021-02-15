@@ -1,3 +1,5 @@
+package Spiel;
+
 public class LogikStart {
 
     private Spiellogik spiellogik;

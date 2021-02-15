@@ -1,3 +1,7 @@
+package Spiel;
+
+import Spiel.Spieler;
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,3 +1,7 @@
+package Spiel;
+
+import Spiel.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,12 +19,14 @@ public class SpielManager {
 
     public void spielStarten(){
         for(int i=0; i<spiellogik.getSpielerList().size(); i++){
+            Spieler aktuellerSpieler=spiellogik.getSpielerList().get(i);
             Haus neuesHaus=new Haus();
-            neuesHaus.setSpieler(spiellogik.getSpielerList().get(i));
+            neuesHaus.setSpieler(aktuellerSpieler);
             hausListe.add(neuesHaus);
+            aktuellerSpieler.setHaus(neuesHaus);
             for(int j=0; j<4; j++){
-                Figur neueFigur = new Figur(spiellogik.getSpielerList().get(i));
-                spiellogik.getSpielerList().get(i).addFigur(neueFigur);
+                Figur neueFigur = new Figur(aktuellerSpieler);
+                aktuellerSpieler.addFigur(neueFigur);
                 neuesHaus.addFigur(neueFigur);
             }
         }

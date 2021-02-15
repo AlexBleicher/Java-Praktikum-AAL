@@ -1,3 +1,7 @@
+package Spiel;
+
+import Spiel.Feld;
+
 public class Figur {
 
     public Spieler spieler;
