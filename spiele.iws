@@ -22,12 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4dcd9bbd-fc5a-4871-a7ae-bc8ca745a998" name="Default Changelist" comment="Planung">
-      <change beforePath="$PROJECT_DIR$/Java-Praktikum-AAL.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/core.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/gui.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spiele.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/spiele.ipr" afterDir="false" />
+    <list default="true" id="4dcd9bbd-fc5a-4871-a7ae-bc8ca745a998" name="Default Changelist" comment="Dritter Commit (erste Funktion, neuer Spieler erstellen)&#10;&#10;#8 BackendStartseite">
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/LogikStart.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/LogikStart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spiele.iws" beforeDir="false" afterPath="$PROJECT_DIR$/spiele.iws" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,10 +88,22 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Pull.Settings">
     <option name="BRANCH" value="main" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/5-Workflow-vorstellen" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JupyterTrust" id="b6cfd1e7-01e8-4109-80d1-9dff5e03c082" />
@@ -179,6 +187,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
@@ -233,7 +252,8 @@
       <workItem from="1613125573312" duration="3746000" />
       <workItem from="1613135213380" duration="123000" />
       <workItem from="1613135385486" duration="462000" />
-      <workItem from="1613135874923" duration="636000" />
+      <workItem from="1613135874923" duration="1244000" />
+      <workItem from="1613377979128" duration="3239000" />
     </task>
     <task id="LOCAL-00001" summary="Planung">
       <created>1613133401652</created>
@@ -242,7 +262,35 @@
       <option name="project" value="LOCAL" />
       <updated>1613133401652</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Planung">
+      <created>1613136748562</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1613136748562</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Erster Commit (Ursprüngliche Planung)&#10;&#10;#8 BackendStartseite">
+      <created>1613379768679</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1613379768679</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Zweiter Commit (erste Funktion, neuer Spieler erstellen)&#10;&#10;#8 BackendStartseite">
+      <created>1613380416925</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1613380416925</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Dritter Commit (erste Funktion, neuer Spieler erstellen)&#10;&#10;#8 BackendStartseite">
+      <created>1613380637514</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1613380637514</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,7 +311,10 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <MESSAGE value="Planung" />
-    <option name="LAST_COMMIT_MESSAGE" value="Planung" />
+    <MESSAGE value="Erster Commit (Ursprüngliche Planung)&#10;&#10;#8 BackendStartseite" />
+    <MESSAGE value="Zweiter Commit (erste Funktion, neuer Spieler erstellen)&#10;&#10;#8 BackendStartseite" />
+    <MESSAGE value="Dritter Commit (erste Funktion, neuer Spieler erstellen)&#10;&#10;#8 BackendStartseite" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dritter Commit (erste Funktion, neuer Spieler erstellen)&#10;&#10;#8 BackendStartseite" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -271,6 +322,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1613126272910" />
+    <state x="446" y="57" key="#com.intellij.ide.util.MemberChooser" timestamp="1613379978992">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="446" y="57" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1613379978992" />
     <state x="442" y="95" key="FileChooserDialogImpl" timestamp="1613135898893">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -295,13 +350,17 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1613135907273" />
-    <state x="233" y="61" key="Vcs.Push.Dialog.v2" timestamp="1613133403589">
+    <state x="233" y="61" key="Vcs.Push.Dialog.v2" timestamp="1613380641644">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="61" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1613133403589" />
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613133674832">
+    <state x="233" y="61" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1613380641644" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613378960821">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1613133674832" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1613378960821" />
+    <state x="280" y="0" key="new project wizard" timestamp="1613378881255">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="280" y="0" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1613378881255" />
   </component>
 </project>

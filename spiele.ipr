@@ -19,10 +19,6 @@
             <element id="dir-copy" path="$PROJECT_DIR$/server/build/resources/main" />
           </element>
           <element id="directory" name="lib">
-            <element id="archive" name="spiele-core.jar">
-              <element id="module-output" name="spiele.core.main" />
-              <element id="dir-copy" path="$PROJECT_DIR$/core/build/resources/main" />
-            </element>
             <element id="file-copy" path="$PROJECT_DIR$/server/libs/jaxrs-ri/api/jakarta.ws.rs-api-2.1.5.jar" />
             <element id="file-copy" path="$PROJECT_DIR$/server/libs/jaxrs-ri/lib/jersey-client.jar" />
             <element id="file-copy" path="$PROJECT_DIR$/server/libs/jaxrs-ri/lib/jersey-common.jar" />
@@ -60,6 +56,10 @@
             <element id="file-copy" path="$PROJECT_DIR$/server/libs/jackson/jackson-jaxrs-base-2.9.4.jar" />
             <element id="file-copy" path="$PROJECT_DIR$/server/libs/jackson/jackson-jaxrs-json-provider-2.9.4.jar" />
             <element id="file-copy" path="$PROJECT_DIR$/server/libs/apache/commons-lang3-3.7.jar" />
+            <element id="archive" name="spiele-core.jar">
+              <element id="module-output" name="spiele.core.main" />
+              <element id="dir-copy" path="$PROJECT_DIR$/core/build/resources/main" />
+            </element>
           </element>
         </element>
       </root>
@@ -87,13 +87,14 @@
     </wildcardResourcePatterns>
     <bytecodeTargetLevel target="12" />
   </component>
-  <component name="CopyrightManager" default="">
-    <module2copyright />
-  </component>
+  <component name="CopyrightManager" default="" />
   <component name="DependencyValidationManager">
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$" />
+  </component>
   <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
@@ -104,6 +105,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Startseite" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/gui" />
             <option value="$PROJECT_DIR$/server" />
@@ -131,6 +133,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/spiele.iml" filepath="$PROJECT_DIR$/spiele.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Startseite/spiele.Startseite.test.iml" filepath="$PROJECT_DIR$/Startseite/spiele.Startseite.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/spiele.core.iml" filepath="$PROJECT_DIR$/core/spiele.core.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/spiele.core.main.iml" filepath="$PROJECT_DIR$/core/spiele.core.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/spiele.core.test.iml" filepath="$PROJECT_DIR$/core/spiele.core.test.iml" />
