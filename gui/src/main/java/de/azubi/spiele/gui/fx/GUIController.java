@@ -13,14 +13,13 @@ public class GUIController {
     @FXML
     private TextField tfName;
 
-
-    public void eintragen(ActionEvent actionEvent){
+    public void eintragen(ActionEvent actionEvent) {
         String name = tfName.getText();
-
+        // Eintragung in LogikSpieler
         taSpieler.setText(taSpieler.getText() + name + "\n");
     }
 
     public void starten(ActionEvent actionEvent) {
-
+        // Starten der eigentlichen Methode
     }
 }
