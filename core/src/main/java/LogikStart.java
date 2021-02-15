@@ -10,4 +10,8 @@ public class LogikStart {
         Spieler neuerSpieler=new Spieler(name);
         spiellogik.addSpieler(neuerSpieler);
     }
+
+    public void spielStarten(){
+
+    }
 }
