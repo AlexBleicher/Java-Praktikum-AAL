@@ -10,6 +10,7 @@ public class SpielManager {
     private Spielbrett spielbrett = new Spielbrett();
     private List<Figur> figurenListe = new ArrayList<>();
     private List<Haus> hausListe = new ArrayList<>();
+    private Spieler starter;
 
     public SpielManager() {
         startLogik = new LogikStart(spiellogik, this);
@@ -28,7 +29,8 @@ public class SpielManager {
                 neuesHaus.addFigur(neueFigur);
             }
         }
-
+        spielbrett.generiereFelder();
+        starter=spiellogik.getSpielerList().get((int) (Math.random()*(spiellogik.getSpielerList().size()-1))+1);
     }
 
 
