@@ -1,11 +1,12 @@
 package de.azubi.spiele.gui.fx;
 
 import java.io.IOException;
+import java.net.URL;
+
 import javafx.application.Application;
-import javafx.geometry.Insets;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -13,26 +14,23 @@ import javafx.stage.Stage;
  */
 public class Starter extends Application {
 
-    @Override
-    public void start(Stage primaryStage) throws IOException {
-        Label label = new Label("Platzhalter");
-
-
-        VBox vBox = new VBox();
-        vBox.setPadding(new Insets(10,20,20,20));
-        vBox.setSpacing(10);
-        vBox.getChildren().add(label);
-
-        Scene scene = new Scene(vBox, 300, 250);
-
-        primaryStage.setTitle("Platzhalter");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
-
-    }
-
     public static void main(String[] args) {
         launch(args);
     }
+
+    @Override
+    public void start(Stage primaryStage) throws IOException {
+
+        URL res = getClass().getResource("GUIStartseite.fxml");
+        Parent root = FXMLLoader.load(res);
+
+        Scene scene = new Scene(root);
+
+        primaryStage.setTitle("GUIStartseite");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+    }
+
+
 }
