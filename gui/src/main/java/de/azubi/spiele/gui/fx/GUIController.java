@@ -1,5 +1,6 @@
 package de.azubi.spiele.gui.fx;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -13,9 +14,13 @@ public class GUIController {
     private TextField tfName;
 
 
-    public void eintragen(){
+    public void eintragen(ActionEvent actionEvent){
         String name = tfName.getText();
 
         taSpieler.setText(taSpieler.getText() + name + "\n");
+    }
+
+    public void starten(ActionEvent actionEvent) {
+
     }
 }
