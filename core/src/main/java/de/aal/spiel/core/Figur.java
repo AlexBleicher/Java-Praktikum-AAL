@@ -3,7 +3,7 @@ package de.aal.spiel.core;
 public class Figur {
 
     public Spieler spieler;
-    private Feld feld;
+    private Feld feld = new Feld(-1);
     public int gezogeneFelder;
 
     public Figur(Spieler spieler) {
