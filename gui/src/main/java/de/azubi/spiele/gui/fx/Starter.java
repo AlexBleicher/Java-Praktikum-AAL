@@ -14,6 +14,7 @@ import javafx.stage.Stage;
  */
 public class Starter extends Application {
 
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -21,16 +22,14 @@ public class Starter extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-        URL res = getClass().getResource("GUIStartseite.fxml");
-        Parent root = FXMLLoader.load(res);
+        URL resStart = getClass().getResource("/startseite/GUIStartseite.fxml");
+        Parent rootStart = FXMLLoader.load(resStart);
 
-        Scene scene = new Scene(root);
+        Scene sceneStart = new Scene(rootStart);
 
         primaryStage.setTitle("GUIStartseite");
-        primaryStage.setScene(scene);
+        primaryStage.setScene(sceneStart);
         primaryStage.show();
 
     }
-
-
 }
