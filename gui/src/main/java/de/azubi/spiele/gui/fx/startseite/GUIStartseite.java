@@ -3,8 +3,6 @@ package de.azubi.spiele.gui.fx.startseite;
 import de.aal.spiel.core.LogikStart;
 import de.aal.spiel.core.SpielManager;
 import de.aal.spiel.core.Spiellogik;
-import de.azubi.spiele.gui.fx.spielbrett.GUISpielbrett;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,11 +12,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.net.URL;
 
-public class GUIController {
+public class GUIStartseite {
 
     public Button btnStarten;
     @FXML
@@ -34,6 +30,7 @@ public class GUIController {
     public void eintragen(ActionEvent actionEvent) {
         String name = tfName.getText();
         logikStart.spielerErstellen(name);
+        tfName.setText("");
         taSpieler.setText(taSpieler.getText() + name + "\n");
     }
 
