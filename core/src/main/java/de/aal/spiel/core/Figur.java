@@ -34,4 +34,10 @@ public class Figur {
     public Spieler getSpieler() {
         return spieler;
     }
+
+    public void geschlagen() {
+        gezogeneFelder = 0;
+        feld = null;
+        spieler.getHaus().addFigur(this);
+    }
 }

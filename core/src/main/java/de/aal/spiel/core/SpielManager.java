@@ -27,6 +27,7 @@ public class SpielManager {
             for (int j = 0; j < 4; j++) {
                 Figur neueFigur = new Figur(aktuellerSpieler);
                 aktuellerSpieler.addFigur(neueFigur);
+                figurenListe.add(neueFigur);
                 neuesHaus.addFigur(neueFigur);
             }
         }
@@ -90,7 +91,7 @@ public class SpielManager {
 
     public void figurZiehen(Spieler spielerDran, int zahlGewuerfelt) {
         Figur figur = spielerDran.getFiguren().get(0);//Platzhalter für GUI auswahl;
-        if (figur.getGezogeneFelder() + zahlGewuerfelt < 40) {
+        if (figur.getGezogeneFelder() + zahlGewuerfelt < spielbrett.getFelder().size()) {
             Feld neuesFeld = figur.getFeld();
             if (neuesFeld.getFeldnummer() + zahlGewuerfelt >= spielbrett.getFelder().size()) {
                 neuesFeld = spielbrett.getFelder().get(neuesFeld.getFeldnummer() + zahlGewuerfelt - spielbrett.getFelder().size());
@@ -98,10 +99,19 @@ public class SpielManager {
                 neuesFeld = spielbrett.getFelder().get(neuesFeld.getFeldnummer() + zahlGewuerfelt);
             }
             figur.setFeld(neuesFeld);
+            for (Figur andereFigur : figurenListe) {
+                if (andereFigur.getFeld().equals(neuesFeld)) {
+                    andereFigur.geschlagen();
+                    break;
+                }
+            }
             figur.setGezogeneFelder(figur.getGezogeneFelder() + zahlGewuerfelt);
-        } else if (40 < figur.getGezogeneFelder() + zahlGewuerfelt && figur.getGezogeneFelder() + zahlGewuerfelt <= 44) {
+        } else if (spielbrett.getFelder().size() < figur.getGezogeneFelder() + zahlGewuerfelt && figur.getGezogeneFelder() + zahlGewuerfelt <= spielbrett.getFelder().size() + 4) {
             figur.getSpieler().setFigurenImZiel(figur.getSpieler().getFigurenImZiel() + 1);
             figur.setFeld(figur.getSpieler().getZiel().get(figur.getGezogeneFelder() + zahlGewuerfelt - 41));
+            if (figur.getSpieler().getFigurenImZiel() == 4) {
+                setBeendet(true);
+            }
         }
     }
 }
