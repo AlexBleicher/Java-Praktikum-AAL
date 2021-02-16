@@ -23,4 +23,11 @@ public class Spieler {
         this.haus = haus;
     }
 
+    public boolean isDarfDreimalWuerfeln() {
+        return darfDreimalWuerfeln;
+    }
+
+    public List<Figur> getFiguren() {
+        return figuren;
+    }
 }

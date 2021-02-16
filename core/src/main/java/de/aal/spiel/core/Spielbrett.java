@@ -15,4 +15,7 @@ public class Spielbrett {
         }
     }
 
+    public List<Feld> getFelder() {
+        return felder;
+    }
 }
