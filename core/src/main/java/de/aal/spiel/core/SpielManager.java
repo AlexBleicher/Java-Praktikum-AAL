@@ -44,7 +44,7 @@ public class SpielManager {
             spieler.setZiel(ziel);
         }
         starter = spiellogik.getSpielerList().get((int) (Math.random() * (spiellogik.getSpielerList().size() - 1)) + 1);
-        spielen(starter);
+        //spielen(starter);
     }
 
     public void spielen(Spieler starter) {
@@ -93,7 +93,7 @@ public class SpielManager {
         Figur figur = spielerDran.getFiguren().get(0);//Platzhalter für GUI auswahl;
         if (figur.getGezogeneFelder() + zahlGewuerfelt < spielbrett.getFelder().size()) {
             Feld neuesFeld = figur.getFeld();
-            if (neuesFeld.getFeldnummer() + zahlGewuerfelt >= spielbrett.getFelder().size()) {
+            if ((neuesFeld.getFeldnummer() + zahlGewuerfelt) >= spielbrett.getFelder().size()) {
                 neuesFeld = spielbrett.getFelder().get(neuesFeld.getFeldnummer() + zahlGewuerfelt - spielbrett.getFelder().size());
             } else {
                 neuesFeld = spielbrett.getFelder().get(neuesFeld.getFeldnummer() + zahlGewuerfelt);
@@ -113,5 +113,17 @@ public class SpielManager {
                 setBeendet(true);
             }
         }
+    }
+
+    public Spielbrett getSpielbrett() {
+        return spielbrett;
+    }
+
+    public LogikStart getStartLogik() {
+        return startLogik;
+    }
+
+    public Spiellogik getSpiellogik() {
+        return spiellogik;
     }
 }

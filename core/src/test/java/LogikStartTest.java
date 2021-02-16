@@ -8,13 +8,22 @@ public class LogikStartTest{
     @Test
     public void spielerErstellen() {
 
-        Spiellogik spiellogik = new Spiellogik();
+
         SpielManager spielManager = new SpielManager();
-        LogikStart logikStart = new LogikStart(spiellogik, spielManager);
 
-        logikStart.spielerErstellen("Hans");
+        spielManager.getStartLogik().spielerErstellen("Hans");
 
-        Assert.assertEquals(spiellogik.getSpielerList().size(), 1);
+        Assert.assertEquals(spielManager.getSpiellogik().getSpielerList().size(), 1);
 
+    }
+    @Test
+    public void spielstarten(){
+        SpielManager spielManager = new SpielManager();
+
+        spielManager.getStartLogik().spielerErstellen("Hans");
+        spielManager.getStartLogik().spielerErstellen("Dieter");
+        spielManager.getStartLogik().spielStarten();
+
+        Assert.assertEquals(spielManager.getSpielbrett().getFelder().size(), 40);
     }
 }
