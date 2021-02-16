@@ -54,7 +54,6 @@ public class SpielManager {
 
     public void spielzug(Spieler spielerDran){
         int zahlGewuerfelt=0;
-        Figur figurZiehen;
         if(spielerDran.isDarfDreimalWuerfeln()){
             for(int i=0; i<3; i++){
                 zahlGewuerfelt = 1 ;//Platzhalter später mit GUI verknüpft
@@ -68,22 +67,32 @@ public class SpielManager {
         }
         if(zahlGewuerfelt==6){
             if(spielerDran.getHaus().getEnthalteneFiguren().size()!=0){
-                figurZiehen=spielerDran.getHaus().getEnthalteneFiguren().get(0);
-                figurZiehen.rauskommen();
+                Figur figur=spielerDran.getHaus().getEnthalteneFiguren().get(0);
+                figur.rauskommen();
             }
+            else{
+                figurZiehen(spielerDran, zahlGewuerfelt);
+            }
+            spielzug(spielerDran);
         }
-        figurZiehen=spielerDran.getFiguren().get(0);
-        Feld neuesFeld= figurZiehen.getFeld();
+        else{
+            figurZiehen(spielerDran, zahlGewuerfelt);
+        }
+    }
+
+    public void setBeendet(boolean beendet) {
+        this.beendet = beendet;
+    }
+
+    public void figurZiehen(Spieler spielerDran, int zahlGewuerfelt){
+        Figur figur=spielerDran.getFiguren().get(0);
+        Feld neuesFeld= figur.getFeld();
         if(neuesFeld.getFeldnummer()+zahlGewuerfelt>=spielbrett.getFelder().size()){
             neuesFeld=spielbrett.getFelder().get(neuesFeld.getFeldnummer()+zahlGewuerfelt-spielbrett.getFelder().size());
         }
         else{
             neuesFeld=spielbrett.getFelder().get(neuesFeld.getFeldnummer()+zahlGewuerfelt);
         }
-        figurZiehen.setFeld(neuesFeld);
-    }
-
-    public void setBeendet(boolean beendet) {
-        this.beendet = beendet;
+        figur.setFeld(neuesFeld);
     }
 }
