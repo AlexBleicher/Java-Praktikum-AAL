@@ -84,12 +84,17 @@ public class SpielManager {
 
     public void figurZiehen(Spieler spielerDran, int zahlGewuerfelt) {
         Figur figur = spielerDran.getFiguren().get(0) ;//Platzhalter für GUI auswahl;
-        Feld neuesFeld = figur.getFeld();
-        if (neuesFeld.getFeldnummer() + zahlGewuerfelt >= spielbrett.getFelder().size()) {
-            neuesFeld = spielbrett.getFelder().get(neuesFeld.getFeldnummer() + zahlGewuerfelt - spielbrett.getFelder().size());
-        } else {
-            neuesFeld = spielbrett.getFelder().get(neuesFeld.getFeldnummer() + zahlGewuerfelt);
+        if(figur.getGezogeneFelder()<40) {
+            Feld neuesFeld = figur.getFeld();
+            if (neuesFeld.getFeldnummer() + zahlGewuerfelt >= spielbrett.getFelder().size()) {
+                neuesFeld = spielbrett.getFelder().get(neuesFeld.getFeldnummer() + zahlGewuerfelt - spielbrett.getFelder().size());
+            } else {
+                neuesFeld = spielbrett.getFelder().get(neuesFeld.getFeldnummer() + zahlGewuerfelt);
+            }
+            figur.setFeld(neuesFeld);
         }
-        figur.setFeld(neuesFeld);
+        else{
+            figur.getSpieler().setFigurenImZiel(figur.getSpieler().getFigurenImZiel()+1);
+        }
     }
 }

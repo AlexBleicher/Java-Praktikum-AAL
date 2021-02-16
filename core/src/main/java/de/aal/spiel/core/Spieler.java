@@ -43,4 +43,12 @@ public class Spieler {
     public Feld getStartFeld() {
         return startFeld;
     }
+
+    public void setFigurenImZiel(int figurenImZiel) {
+        this.figurenImZiel = figurenImZiel;
+    }
+
+    public int getFigurenImZiel() {
+        return figurenImZiel;
+    }
 }
