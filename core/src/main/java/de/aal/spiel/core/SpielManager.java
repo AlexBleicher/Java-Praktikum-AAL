@@ -31,6 +31,11 @@ public class SpielManager {
             }
         }
         spielbrett.generiereFelder();
+        int aktuellesFeld=0;
+        for(Spieler spieler: spiellogik.getSpielerList()){
+            spieler.setStartFeld(spielbrett.getFelder().get(aktuellesFeld));
+            aktuellesFeld+=10;
+        }
         starter=spiellogik.getSpielerList().get((int) (Math.random()*(spiellogik.getSpielerList().size()-1))+1);
         spielen(starter);
     }
@@ -49,7 +54,6 @@ public class SpielManager {
 
     public void spielzug(Spieler spielerDran){
         int zahlGewuerfelt=0;
-        Figur figurZiehen;
         if(spielerDran.isDarfDreimalWuerfeln()){
             for(int i=0; i<3; i++){
                 zahlGewuerfelt = 1 ;//Platzhalter später mit GUI verknüpft
@@ -61,18 +65,34 @@ public class SpielManager {
         else{
             zahlGewuerfelt=2; //Platzhalter später mit GUI verknüpft
         }
-        figurZiehen=spielerDran.getFiguren().get(0);
-        Feld neuesFeld= figurZiehen.getFeld();
+        if(zahlGewuerfelt==6){
+            if(spielerDran.getHaus().getEnthalteneFiguren().size()!=0){
+                Figur figur=spielerDran.getHaus().getEnthalteneFiguren().get(0);
+                figur.rauskommen();
+            }
+            else{
+                figurZiehen(spielerDran, zahlGewuerfelt);
+            }
+            spielzug(spielerDran);
+        }
+        else{
+            figurZiehen(spielerDran, zahlGewuerfelt);
+        }
+    }
+
+    public void setBeendet(boolean beendet) {
+        this.beendet = beendet;
+    }
+
+    public void figurZiehen(Spieler spielerDran, int zahlGewuerfelt){
+        Figur figur=spielerDran.getFiguren().get(0);
+        Feld neuesFeld= figur.getFeld();
         if(neuesFeld.getFeldnummer()+zahlGewuerfelt>=spielbrett.getFelder().size()){
             neuesFeld=spielbrett.getFelder().get(neuesFeld.getFeldnummer()+zahlGewuerfelt-spielbrett.getFelder().size());
         }
         else{
             neuesFeld=spielbrett.getFelder().get(neuesFeld.getFeldnummer()+zahlGewuerfelt);
         }
-        figurZiehen.setFeld(neuesFeld);
-    }
-
-    public void setBeendet(boolean beendet) {
-        this.beendet = beendet;
+        figur.setFeld(neuesFeld);
     }
 }
