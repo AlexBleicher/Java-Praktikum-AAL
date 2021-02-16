@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="364.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/12" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="de.azubi.spiele.gui.fx.startseite.GUIController">
+            fx:controller="de.azubi.spiele.gui.fx.startseite.GUIStartseite">
     <children>
         <VBox layoutX="1.0" layoutY="2.0" prefHeight="379.0" prefWidth="600.0">
             <children>
