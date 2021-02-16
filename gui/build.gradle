@@ -26,7 +26,7 @@ jlink {
 
 application {
     mainModule = 'de.azubi.spiel'
-    mainClass = 'de.azubi.spiele.gui.fx.spielbrett.Starter'
+    mainClass = 'de.azubi.spiele.gui.fx.Starter'
     dependencies {
         implementation project(":core")
         implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.4'
