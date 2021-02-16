@@ -31,6 +31,11 @@ public class SpielManager {
             }
         }
         spielbrett.generiereFelder();
+        int aktuellesFeld=0;
+        for(Spieler spieler: spiellogik.getSpielerList()){
+            spieler.setStartFeld(spielbrett.getFelder().get(aktuellesFeld));
+            aktuellesFeld+=10;
+        }
         starter=spiellogik.getSpielerList().get((int) (Math.random()*(spiellogik.getSpielerList().size()-1))+1);
         spielen(starter);
     }
@@ -60,6 +65,12 @@ public class SpielManager {
         }
         else{
             zahlGewuerfelt=2; //Platzhalter später mit GUI verknüpft
+        }
+        if(zahlGewuerfelt==6){
+            if(spielerDran.getHaus().getEnthalteneFiguren().size()!=0){
+                figurZiehen=spielerDran.getHaus().getEnthalteneFiguren().get(0);
+                figurZiehen.rauskommen();
+            }
         }
         figurZiehen=spielerDran.getFiguren().get(0);
         Feld neuesFeld= figurZiehen.getFeld();

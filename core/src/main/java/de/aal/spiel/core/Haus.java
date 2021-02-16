@@ -16,4 +16,8 @@ public class Haus {
     public void addFigur(Figur f){
         enthalteneFiguren.add(f);
     }
+
+    public List<Figur> getEnthalteneFiguren() {
+        return enthalteneFiguren;
+    }
 }

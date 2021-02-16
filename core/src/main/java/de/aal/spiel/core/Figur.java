@@ -16,4 +16,8 @@ public class Figur {
     public Feld getFeld() {
         return feld;
     }
+
+    public void rauskommen(){
+        feld=spieler.getStartFeld();
+    }
 }
