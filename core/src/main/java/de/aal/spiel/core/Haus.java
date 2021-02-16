@@ -13,7 +13,7 @@ public class Haus {
         this.spieler = spieler;
     }
 
-    public void addFigur(Figur f){
+    public void addFigur(Figur f) {
         enthalteneFiguren.add(f);
     }
 
