@@ -1,4 +1,4 @@
-package de.azubi.spiele.gui.fx;
+package de.azubi.spiele.gui.fx.spielbrett;
 
 import java.io.IOException;
 import java.net.URL;
@@ -9,9 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- * @author tz
- */
 public class Starter extends Application {
 
     public static void main(String[] args) {
@@ -21,16 +18,14 @@ public class Starter extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-        URL res = getClass().getResource("/GUIStartseite.fxml");
+        URL res = getClass().getResource("/spielbrett/GUISpielbrett.fxml");
         Parent root = FXMLLoader.load(res);
 
         Scene scene = new Scene(root);
 
-        primaryStage.setTitle("GUIStartseite");
+        primaryStage.setTitle("Mensch Ärgere dich nicht!");
         primaryStage.setScene(scene);
         primaryStage.show();
 
     }
-
-
 }
