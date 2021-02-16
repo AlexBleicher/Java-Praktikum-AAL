@@ -95,6 +95,7 @@ public class SpielManager {
         }
         else{
             figur.getSpieler().setFigurenImZiel(figur.getSpieler().getFigurenImZiel()+1);
+            figur.setFeld(null);
         }
     }
 }
