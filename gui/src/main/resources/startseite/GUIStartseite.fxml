@@ -10,52 +10,54 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="364.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.azubi.spiele.gui.fx.startseite.GUIController">
-   <children>
-      <VBox layoutX="1.0" layoutY="2.0" prefHeight="379.0" prefWidth="600.0">
-         <children>
-            <HBox alignment="CENTER" prefHeight="41.0" prefWidth="600.0">
-               <children>
-                  <Label alignment="CENTER" text="SPIELER ERSTELLEN">
-                     <font>
-                        <Font name="Aero" size="24.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="73.0" prefWidth="600.0" spacing="20.0">
-               <children>
-                  <Label text=" Name: " />
-                  <TextField fx:id="tfName" />
-                  <Button mnemonicParsing="false" text="Spieler eintragen" onAction="#eintragen"/>
-               </children>
-               <opaqueInsets>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </opaqueInsets>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </HBox>
-            <HBox prefHeight="195.0" prefWidth="600.0">
-               <children>
-                  <TextArea fx:id="taSpieler" prefHeight="175.0" prefWidth="580.0" editable="false"/>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="600.0">
-               <children>
-                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Starten" onAction="#starten"/>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </HBox>
-         </children>
-      </VBox>
-   </children>
+<AnchorPane prefHeight="364.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="de.azubi.spiele.gui.fx.startseite.GUIController">
+    <children>
+        <VBox layoutX="1.0" layoutY="2.0" prefHeight="379.0" prefWidth="600.0">
+            <children>
+                <HBox alignment="CENTER" prefHeight="41.0" prefWidth="600.0">
+                    <children>
+                        <Label alignment="CENTER" text="SPIELER ERSTELLEN">
+                            <font>
+                                <Font name="Aero" size="24.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="73.0" prefWidth="600.0" spacing="20.0">
+                    <children>
+                        <Label text=" Name: "/>
+                        <TextField fx:id="tfName"/>
+                        <Button mnemonicParsing="false" text="Spieler eintragen" onAction="#eintragen"/>
+                    </children>
+                    <opaqueInsets>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </opaqueInsets>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </padding>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </HBox>
+                <HBox prefHeight="195.0" prefWidth="600.0">
+                    <children>
+                        <TextArea fx:id="taSpieler" prefHeight="175.0" prefWidth="580.0" editable="false"/>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </padding>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="600.0">
+                    <children>
+                        <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Starten" onAction="#starten"
+                                fx:id="btnStarten"/>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </padding>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
 </AnchorPane>
