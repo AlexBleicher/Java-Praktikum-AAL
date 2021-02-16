@@ -69,6 +69,7 @@ public class SpielManager {
             if(spielerDran.getHaus().getEnthalteneFiguren().size()!=0){
                 Figur figur=spielerDran.getHaus().getEnthalteneFiguren().get(0);
                 figur.rauskommen();
+                spielerDran.getHaus().getEnthalteneFiguren().remove(figur);
             }
             else{
                 figurZiehen(spielerDran, zahlGewuerfelt);
