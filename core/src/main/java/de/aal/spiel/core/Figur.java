@@ -20,6 +20,7 @@ public class Figur {
 
     public void rauskommen() {
         feld = spieler.getStartFeld();
+        gezogeneFelder = 1;
     }
 
     public int getGezogeneFelder() {

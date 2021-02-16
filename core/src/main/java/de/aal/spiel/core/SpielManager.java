@@ -35,9 +35,9 @@ public class SpielManager {
         for (Spieler spieler : spiellogik.getSpielerList()) {
             spieler.setStartFeld(spielbrett.getFelder().get(aktuellesFeld));
             aktuellesFeld += 10;
-            List<Feld> ziel=new ArrayList<>();
-            for(int i=0; i<4;i++){
-                Feld nFeld=new Feld(40+i);
+            List<Feld> ziel = new ArrayList<>();
+            for (int i = 0; i < 4; i++) {
+                Feld nFeld = new Feld(40 + i);
                 ziel.add(nFeld);
             }
             spieler.setZiel(ziel);
@@ -89,8 +89,8 @@ public class SpielManager {
     }
 
     public void figurZiehen(Spieler spielerDran, int zahlGewuerfelt) {
-        Figur figur = spielerDran.getFiguren().get(0) ;//Platzhalter für GUI auswahl;
-        if(figur.getGezogeneFelder()+zahlGewuerfelt<40) {
+        Figur figur = spielerDran.getFiguren().get(0);//Platzhalter für GUI auswahl;
+        if (figur.getGezogeneFelder() + zahlGewuerfelt < 40) {
             Feld neuesFeld = figur.getFeld();
             if (neuesFeld.getFeldnummer() + zahlGewuerfelt >= spielbrett.getFelder().size()) {
                 neuesFeld = spielbrett.getFelder().get(neuesFeld.getFeldnummer() + zahlGewuerfelt - spielbrett.getFelder().size());
@@ -98,10 +98,10 @@ public class SpielManager {
                 neuesFeld = spielbrett.getFelder().get(neuesFeld.getFeldnummer() + zahlGewuerfelt);
             }
             figur.setFeld(neuesFeld);
-        }
-        else if(40<figur.getGezogeneFelder()+zahlGewuerfelt&&figur.getGezogeneFelder()+zahlGewuerfelt<=44){
-            figur.getSpieler().setFigurenImZiel(figur.getSpieler().getFigurenImZiel()+1);
-            figur.setFeld(figur.getSpieler().getZiel().get(figur.getGezogeneFelder()+zahlGewuerfelt-41));
+            figur.setGezogeneFelder(figur.getGezogeneFelder() + zahlGewuerfelt);
+        } else if (40 < figur.getGezogeneFelder() + zahlGewuerfelt && figur.getGezogeneFelder() + zahlGewuerfelt <= 44) {
+            figur.getSpieler().setFigurenImZiel(figur.getSpieler().getFigurenImZiel() + 1);
+            figur.setFeld(figur.getSpieler().getZiel().get(figur.getGezogeneFelder() + zahlGewuerfelt - 41));
         }
     }
 }
