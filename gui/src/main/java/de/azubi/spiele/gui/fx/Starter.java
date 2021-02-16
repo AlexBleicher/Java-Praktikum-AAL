@@ -21,7 +21,7 @@ public class Starter extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-        URL res = getClass().getResource("GUIStartseite.fxml");
+        URL res = getClass().getResource("/GUIStartseite.fxml");
         Parent root = FXMLLoader.load(res);
 
         Scene scene = new Scene(root);

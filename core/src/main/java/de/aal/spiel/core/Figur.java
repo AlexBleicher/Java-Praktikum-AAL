@@ -12,4 +12,8 @@ public class Figur {
     public void setFeld(Feld feld) {
         this.feld = feld;
     }
+
+    public Feld getFeld() {
+        return feld;
+    }
 }
