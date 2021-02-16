@@ -86,7 +86,7 @@ public class SpielManager {
     }
 
     public void figurZiehen(Spieler spielerDran, int zahlGewuerfelt){
-        Figur figur=spielerDran.getFiguren().get(0);
+        Figur figur=spielerDran.getFiguren().get(0) //Platzhalter für GUI auswahl;
         Feld neuesFeld= figur.getFeld();
         if(neuesFeld.getFeldnummer()+zahlGewuerfelt>=spielbrett.getFelder().size()){
             neuesFeld=spielbrett.getFelder().get(neuesFeld.getFeldnummer()+zahlGewuerfelt-spielbrett.getFelder().size());
