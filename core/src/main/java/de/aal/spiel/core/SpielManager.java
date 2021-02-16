@@ -99,17 +99,17 @@ public class SpielManager {
                 neuesFeld = spielbrett.getFelder().get(neuesFeld.getFeldnummer() + zahlGewuerfelt);
             }
             figur.setFeld(neuesFeld);
-            for(Figur andereFigur: figurenListe){
-                if(andereFigur.getFeld().equals(neuesFeld)){
+            for (Figur andereFigur : figurenListe) {
+                if (andereFigur.getFeld().equals(neuesFeld)) {
                     andereFigur.geschlagen();
                     break;
                 }
             }
             figur.setGezogeneFelder(figur.getGezogeneFelder() + zahlGewuerfelt);
-        } else if (spielbrett.getFelder().size() < figur.getGezogeneFelder() + zahlGewuerfelt && figur.getGezogeneFelder() + zahlGewuerfelt <= spielbrett.getFelder().size()+4) {
+        } else if (spielbrett.getFelder().size() < figur.getGezogeneFelder() + zahlGewuerfelt && figur.getGezogeneFelder() + zahlGewuerfelt <= spielbrett.getFelder().size() + 4) {
             figur.getSpieler().setFigurenImZiel(figur.getSpieler().getFigurenImZiel() + 1);
             figur.setFeld(figur.getSpieler().getZiel().get(figur.getGezogeneFelder() + zahlGewuerfelt - 41));
-            if(figur.getSpieler().getFigurenImZiel()==4){
+            if (figur.getSpieler().getFigurenImZiel() == 4) {
                 setBeendet(true);
             }
         }
