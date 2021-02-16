@@ -11,6 +11,7 @@ public class Spieler {
     private List<Figur> figuren = new ArrayList<>();
     private Haus haus;
     private Feld startFeld = new Feld(0); //Platzhalter
+    public List<Feld> ziel=new ArrayList<>();
 
     public Spieler(String name) {
         this.name = name;
@@ -50,5 +51,13 @@ public class Spieler {
 
     public int getFigurenImZiel() {
         return figurenImZiel;
+    }
+
+    public List<Feld> getZiel() {
+        return ziel;
+    }
+
+    public void setZiel(List<Feld> ziel) {
+        this.ziel = ziel;
     }
 }

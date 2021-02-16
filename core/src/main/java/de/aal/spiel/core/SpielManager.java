@@ -35,6 +35,12 @@ public class SpielManager {
         for (Spieler spieler : spiellogik.getSpielerList()) {
             spieler.setStartFeld(spielbrett.getFelder().get(aktuellesFeld));
             aktuellesFeld += 10;
+            List<Feld> ziel=new ArrayList<>();
+            for(int i=0; i<4;i++){
+                Feld nFeld=new Feld(40+i);
+                ziel.add(nFeld);
+            }
+            spieler.setZiel(ziel);
         }
         starter = spiellogik.getSpielerList().get((int) (Math.random() * (spiellogik.getSpielerList().size() - 1)) + 1);
         spielen(starter);
@@ -93,9 +99,9 @@ public class SpielManager {
             }
             figur.setFeld(neuesFeld);
         }
-        else{
+        else if(40<figur.getGezogeneFelder()+zahlGewuerfelt&&figur.getGezogeneFelder()+zahlGewuerfelt<=44){
             figur.getSpieler().setFigurenImZiel(figur.getSpieler().getFigurenImZiel()+1);
-            figur.setFeld(null);
+            figur.setFeld(figur.getSpieler().getZiel().get(figur.getGezogeneFelder()+zahlGewuerfelt-41));
         }
     }
 }
