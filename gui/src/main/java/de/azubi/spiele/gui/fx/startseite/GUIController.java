@@ -1,4 +1,4 @@
-package de.azubi.spiele.gui.fx;
+package de.azubi.spiele.gui.fx.startseite;
 
 import de.aal.spiel.core.LogikStart;
 import de.aal.spiel.core.SpielManager;
