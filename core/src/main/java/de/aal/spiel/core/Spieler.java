@@ -8,14 +8,15 @@ public class Spieler {
     private String name;
     private int figurenImZiel = 0;
     private boolean darfDreimalWuerfeln = false;
-    private List<Figur> figuren=new ArrayList<>();
+    private List<Figur> figuren = new ArrayList<>();
     private Haus haus;
+    private Feld startFeld = new Feld(0); //Platzhalter
 
     public Spieler(String name) {
         this.name = name;
     }
 
-    public void addFigur(Figur f){
+    public void addFigur(Figur f) {
         figuren.add(f);
     }
 
@@ -29,5 +30,17 @@ public class Spieler {
 
     public List<Figur> getFiguren() {
         return figuren;
+    }
+
+    public Haus getHaus() {
+        return haus;
+    }
+
+    public void setStartFeld(Feld startFeld) {
+        this.startFeld = startFeld;
+    }
+
+    public Feld getStartFeld() {
+        return startFeld;
     }
 }
