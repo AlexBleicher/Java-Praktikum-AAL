@@ -22,4 +22,5 @@ public class Spieler {
     public void setHaus(Haus haus) {
         this.haus = haus;
     }
+
 }

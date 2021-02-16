@@ -31,6 +31,14 @@ public class SpielManager {
         }
         spielbrett.generiereFelder();
         starter=spiellogik.getSpielerList().get((int) (Math.random()*(spiellogik.getSpielerList().size()-1))+1);
+        spielen(starter);
+    }
+    public void spielen(Spieler starter){
+        boolean beendet=false;
+        Spieler spielerDran = starter;
+        while(!beendet){
+
+        }
     }
 
 
