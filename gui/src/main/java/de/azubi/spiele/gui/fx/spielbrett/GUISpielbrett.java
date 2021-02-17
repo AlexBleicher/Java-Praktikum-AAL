@@ -2,12 +2,14 @@ package de.azubi.spiele.gui.fx.spielbrett;
 
 import de.aal.spiel.core.SpielManager;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 
 public class GUISpielbrett {
 
     public ChoiceBox choiceFigur;
+    public Button btnPlay;
     private SpielManager spielManager = new SpielManager();
     public Label lblWuerfeln;
 
@@ -19,6 +21,11 @@ public class GUISpielbrett {
         spielManager.setZahlGewuerfelt(gewuerfelt);
         return gewuerfelt;
 
+    }
+
+    public void spielen(ActionEvent actionEvent) {
+        btnPlay.setVisible(false);
+        spielManager.spielen(spielManager.getStarter());
     }
 
     public void move(ActionEvent actionEvent) {
