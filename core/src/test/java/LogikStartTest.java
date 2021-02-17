@@ -6,7 +6,7 @@ import org.junit.*;
 public class LogikStartTest{
 
     @Test
-    public void spielerErstellen() {
+    public void spielerErstellen() throws Exception {
 
 
         SpielManager spielManager = new SpielManager();
@@ -17,7 +17,7 @@ public class LogikStartTest{
 
     }
     @Test
-    public void spielstarten(){
+    public void spielstarten() throws Exception {
         SpielManager spielManager = new SpielManager();
 
         spielManager.getStartLogik().spielerErstellen("Hans");
