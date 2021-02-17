@@ -25,7 +25,9 @@ public class GUISpielbrett {
 
     public void spielen(ActionEvent actionEvent) {
         btnPlay.setVisible(false);
-        spielManager.spielen(spielManager.getStarter());
+        lblWuerfeln.setText("Das Spiel beginnt");
+        lblWuerfeln.setVisible(true);
+        spielManager.spielzug(spielManager.getStarter());
     }
 
     public void move(ActionEvent actionEvent) {

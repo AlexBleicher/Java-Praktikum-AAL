@@ -60,4 +60,8 @@ public class Spieler {
     public void setZiel(List<Feld> ziel) {
         this.ziel = ziel;
     }
+
+    public String getName() {
+        return name;
+    }
 }

@@ -50,16 +50,13 @@ public class SpielManager {
         starter = spiellogik.getSpielerList().get((int) (Math.random() * (spiellogik.getSpielerList().size() - 1)) + 1);
     }
 
-    public void spielen(Spieler starter) {
-        Spieler spielerDran = starter;
-        while (!beendet) {
-            spielzug(spielerDran);
-            if (spiellogik.getSpielerList().indexOf(spielerDran) == (spiellogik.getSpielerList().size() - 1)) {
-                spielerDran = spiellogik.getSpielerList().get(0);
-            } else {
-                spielerDran = spiellogik.getSpielerList().get(spiellogik.getSpielerList().indexOf(spielerDran) + 1);
-            }
+    public void spielerAendern(Spieler spielerDran) {
+        if (spiellogik.getSpielerList().indexOf(spielerDran) == (spiellogik.getSpielerList().size() - 1)) {
+            spielerDran = spiellogik.getSpielerList().get(0);
+        } else {
+            spielerDran = spiellogik.getSpielerList().get(spiellogik.getSpielerList().indexOf(spielerDran) + 1);
         }
+
     }
 
     public void spielzug(Spieler spielerDran) {
@@ -117,6 +114,7 @@ public class SpielManager {
                 setBeendet(true);
             }
         }
+        spielerAendern(spielerDran);
     }
 
     public int wuerfeln() {
