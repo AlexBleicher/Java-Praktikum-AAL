@@ -13,6 +13,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import java.util.ArrayList?>
+
 <AnchorPane prefHeight="531.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.azubi.spiele.gui.fx.spielbrett.GUISpielbrett">
     <children>
@@ -34,7 +36,6 @@
                 </HBox>
 
 
-
                 <!-- Wuerfeln -->
 
                 <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="580.0" spacing="10.0">
@@ -46,7 +47,6 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                     </padding>
                 </HBox>
-
 
 
                 <!-- ChoiceBox Figur auswaehlen -->
@@ -82,9 +82,6 @@
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
-                                            <image>
-                                                <Image url="/figuren/black.png"/>
-                                            </image>
                                         </ImageView>
                                     </graphic>
                                 </Button>
@@ -93,9 +90,6 @@
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
-                                            <image>
-                                                <Image url="/figuren/black.png"/>
-                                            </image>
                                         </ImageView>
                                     </graphic>
                                 </Button>
@@ -145,9 +139,6 @@
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
-                                            <image>
-                                                <Image url="/figuren/black.png"/>
-                                            </image>
                                         </ImageView>
                                     </graphic>
                                 </Button>
@@ -156,9 +147,6 @@
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
-                                            <image>
-                                                <Image url="/figuren/black.png"/>
-                                            </image>
                                         </ImageView>
                                     </graphic>
                                 </Button>
@@ -171,9 +159,6 @@
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
-                                            <image>
-                                                <Image url="/figuren/black.png"/>
-                                            </image>
                                         </ImageView>
                                     </graphic>
                                 </Button>
@@ -182,9 +167,6 @@
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
-                                            <image>
-                                                <Image url="/figuren/black.png"/>
-                                            </image>
                                         </ImageView>
                                     </graphic>
                                 </Button>
@@ -205,7 +187,7 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button mnemonicParsing="false"
+                                <Button fx:id="blueGoal1" mnemonicParsing="false"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -234,9 +216,6 @@
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
-                                            <image>
-                                                <Image url="/figuren/black.png"/>
-                                            </image>
                                         </ImageView>
                                     </graphic>
                                 </Button>
@@ -245,9 +224,6 @@
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
-                                            <image>
-                                                <Image url="/figuren/black.png"/>
-                                            </image>
                                         </ImageView>
                                     </graphic>
                                 </Button>
@@ -278,7 +254,7 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button mnemonicParsing="false"
+                                <Button fx:id="blueGoal2" mnemonicParsing="false"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -335,7 +311,7 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button mnemonicParsing="false"
+                                <Button fx:id="blueGoal3" mnemonicParsing="false"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -404,7 +380,7 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button mnemonicParsing="false"
+                                <Button fx:id="blueGoal4" mnemonicParsing="false"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -457,28 +433,28 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button mnemonicParsing="false"
+                                <Button fx:id="redGoal1" mnemonicParsing="false"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button mnemonicParsing="false"
+                                <Button fx:id="redGoal2" mnemonicParsing="false"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button mnemonicParsing="false"
+                                <Button fx:id="redGoal3" mnemonicParsing="false"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button mnemonicParsing="false"
+                                <Button fx:id="redGoal4" mnemonicParsing="false"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -492,28 +468,28 @@
                                         visible="false"/>
 
 
-                                <Button mnemonicParsing="false"
+                                <Button fx:id="greenGoal4" mnemonicParsing="false"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button mnemonicParsing="false"
+                                <Button fx:id="greenGoal3" mnemonicParsing="false"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button mnemonicParsing="false"
+                                <Button fx:id="greenGoal2" mnemonicParsing="false"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button mnemonicParsing="false"
+                                <Button fx:id="greenGoal1" mnemonicParsing="false"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -565,7 +541,7 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button mnemonicParsing="false"
+                                <Button fx:id="yellowGoal4" mnemonicParsing="false"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -634,7 +610,7 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button mnemonicParsing="false"
+                                <Button fx:id="yellowGoal3" mnemonicParsing="false"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -691,7 +667,7 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button mnemonicParsing="false"
+                                <Button fx:id="yellowGoal2" mnemonicParsing="false"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -730,9 +706,6 @@
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
-                                            <image>
-                                                <Image url="/figuren/black.png"/>
-                                            </image>
                                         </ImageView>
                                     </graphic>
                                 </Button>
@@ -741,9 +714,6 @@
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
-                                            <image>
-                                                <Image url="/figuren/black.png"/>
-                                            </image>
                                         </ImageView>
                                     </graphic>
                                 </Button>
@@ -764,7 +734,7 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button mnemonicParsing="false"
+                                <Button fx:id="yellowGoal1" mnemonicParsing="false"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -793,9 +763,6 @@
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
-                                            <image>
-                                                <Image url="/figuren/black.png"/>
-                                            </image>
                                         </ImageView>
                                     </graphic>
                                 </Button>
@@ -804,9 +771,6 @@
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true" smooth="false">
-                                            <image>
-                                                <Image url="/figuren/black.png"/>
-                                            </image>
                                         </ImageView>
                                     </graphic>
                                 </Button>
@@ -819,9 +783,6 @@
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
-                                            <image>
-                                                <Image url="/figuren/black.png"/>
-                                            </image>
                                         </ImageView>
                                     </graphic>
                                 </Button>
@@ -830,9 +791,6 @@
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
-                                            <image>
-                                                <Image url="/figuren/black.png"/>
-                                            </image>
                                         </ImageView>
                                     </graphic>
                                 </Button>
@@ -879,23 +837,17 @@
 
                                 <Button fx:id="greenBase3" mnemonicParsing="false"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
-                                <graphic>
-                                    <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
-                                               preserveRatio="true">
-                                        <image>
-                                            <Image url="/figuren/black.png"/>
-                                        </image>
-                                    </ImageView>
-                                </graphic>
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                        </ImageView>
+                                    </graphic>
                                 </Button>
                                 <Button fx:id="greenBase4" mnemonicParsing="false"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
-                                            <image>
-                                                <Image url="/figuren/black.png"/>
-                                            </image>
                                         </ImageView>
                                     </graphic>
                                 </Button>
@@ -905,5 +857,93 @@
                 </VBox>
             </children>
         </VBox>
+
+        <fx:define>
+            <ArrayList fx:id="fields">
+                <!-- Haeuser -->
+                <fx:reference source="redBase1"/>
+                <fx:reference source="redBase2"/>
+                <fx:reference source="redBase3"/>
+                <fx:reference source="redBase4"/>
+                <fx:reference source="blueBase1"/>
+                <fx:reference source="blueBase2"/>
+                <fx:reference source="blueBase3"/>
+                <fx:reference source="blueBase4"/>
+                <fx:reference source="yellowBase1"/>
+                <fx:reference source="yellowBase2"/>
+                <fx:reference source="yellowBase3"/>
+                <fx:reference source="yellowBase4"/>
+                <fx:reference source="greenBase1"/>
+                <fx:reference source="greenBase2"/>
+                <fx:reference source="greenBase3"/>
+                <fx:reference source="greenBase4"/>
+
+
+                <!-- Ziele -->
+
+                <fx:reference source="redGoal1"/>
+                <fx:reference source="redGoal2"/>
+                <fx:reference source="redGoal3"/>
+                <fx:reference source="redGoal4"/>
+                <fx:reference source="blueGoal1"/>
+                <fx:reference source="blueGoal2"/>
+                <fx:reference source="blueGoal3"/>
+                <fx:reference source="blueGoal4"/>
+                <fx:reference source="yellowGoal1"/>
+                <fx:reference source="yellowGoal2"/>
+                <fx:reference source="yellowGoal3"/>
+                <fx:reference source="yellowGoal4"/>
+                <fx:reference source="greenGoal1"/>
+                <fx:reference source="greenGoal2"/>
+                <fx:reference source="greenGoal3"/>
+                <fx:reference source="greenGoal4"/>
+
+
+                <!-- Felder -->
+
+                <fx:reference source="btnField1"/>
+                <fx:reference source="btnField2"/>
+                <fx:reference source="btnField3"/>
+                <fx:reference source="btnField4"/>
+                <fx:reference source="btnField5"/>
+                <fx:reference source="btnField6"/>
+                <fx:reference source="btnField7"/>
+                <fx:reference source="btnField8"/>
+                <fx:reference source="btnField9"/>
+                <fx:reference source="btnField10"/>
+                <fx:reference source="btnField11"/>
+                <fx:reference source="btnField12"/>
+                <fx:reference source="btnField13"/>
+                <fx:reference source="btnField14"/>
+                <fx:reference source="btnField15"/>
+                <fx:reference source="btnField16"/>
+                <fx:reference source="btnField17"/>
+                <fx:reference source="btnField18"/>
+                <fx:reference source="btnField19"/>
+                <fx:reference source="btnField20"/>
+                <fx:reference source="btnField21"/>
+                <fx:reference source="btnField22"/>
+                <fx:reference source="btnField23"/>
+                <fx:reference source="btnField24"/>
+                <fx:reference source="btnField25"/>
+                <fx:reference source="btnField26"/>
+                <fx:reference source="btnField27"/>
+                <fx:reference source="btnField28"/>
+                <fx:reference source="btnField29"/>
+                <fx:reference source="btnField30"/>
+                <fx:reference source="btnField31"/>
+                <fx:reference source="btnField32"/>
+                <fx:reference source="btnField33"/>
+                <fx:reference source="btnField34"/>
+                <fx:reference source="btnField35"/>
+                <fx:reference source="btnField36"/>
+                <fx:reference source="btnField37"/>
+                <fx:reference source="btnField38"/>
+                <fx:reference source="btnField39"/>
+                <fx:reference source="btnField40"/>
+            </ArrayList>
+        </fx:define>
     </children>
 </AnchorPane>
+
+
