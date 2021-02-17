@@ -64,13 +64,9 @@ public class SpielManager {
     }
 
     public void spielzug(Spieler spielerDran) {
-        boolean gewuerfelt=false;
-        while(!gewuerfelt){
-            //Label sagt: Würfeln!"
-            if(gewuerfelt == true){ //Wenn gewuerfelt
-                gewuerfelt=true;
-            }
-        }
+
+        //while Loop wenn noch nicht 3mal gewürfelt
+
         if (spielerDran.isDarfDreimalWuerfeln()) {
             for (int i = 0; i < 2; i++) {
                 if (zahlGewuerfelt == 6) {
