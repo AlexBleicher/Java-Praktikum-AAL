@@ -65,6 +65,7 @@
                             </items>
                         </ChoiceBox>
                         <Button fx:id="btnMove" mnemonicParsing="false" text="Figur bewegen" onAction="#move"/>
+                        <Button fx:id="btnPlay" mnemonicParsing="false" text="Spiel starten" onAction="#spielen"/>
                     </children>
                 </HBox>
 

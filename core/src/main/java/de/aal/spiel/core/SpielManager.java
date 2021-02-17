@@ -147,5 +147,9 @@ public class SpielManager {
     public void setIndexFigur(int indexFigur) {
         this.indexFigur = indexFigur;
     }
+
+    public Spieler getStarter() {
+        return starter;
+    }
 }
 
