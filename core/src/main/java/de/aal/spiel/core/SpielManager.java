@@ -6,6 +6,7 @@ import java.util.List;
 
 public class SpielManager {
 
+    private static final SpielManager instance = new SpielManager();
     //private LogikStart startLogik;
     private Spiellogik spiellogik = new Spiellogik();
     private Spielbrett spielbrett = new Spielbrett();
@@ -148,6 +149,10 @@ public class SpielManager {
 
     public Spieler getStarter() {
         return starter;
+    }
+
+    public static SpielManager getInstance() {
+        return instance;
     }
 }
 

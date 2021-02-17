@@ -10,7 +10,7 @@ public class GUISpielbrett {
 
     public ChoiceBox choiceFigur;
     public Button btnPlay;
-    private SpielManager spielManager = new SpielManager();
+    private SpielManager spielManager = SpielManager.getInstance();
     public Label lblWuerfeln;
 
     public int wuerfeln(ActionEvent actionEvent) {

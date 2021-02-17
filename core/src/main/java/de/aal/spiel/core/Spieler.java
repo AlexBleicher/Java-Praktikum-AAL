@@ -7,7 +7,7 @@ public class Spieler {
 
     private String name;
     private int figurenImZiel = 0;
-    private boolean darfDreimalWuerfeln = false;
+    private boolean darfDreimalWuerfeln = true;
     private List<Figur> figuren = new ArrayList<>();
     private Haus haus;
     private Feld startFeld = new Feld(0); //Platzhalter
