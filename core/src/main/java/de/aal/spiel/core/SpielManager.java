@@ -134,4 +134,8 @@ public class SpielManager {
     public void setZahlGewuerfelt(int zahlGewuerfelt) {
         this.zahlGewuerfelt = zahlGewuerfelt;
     }
+
+    public Spieler getStarter() {
+        return starter;
+    }
 }
