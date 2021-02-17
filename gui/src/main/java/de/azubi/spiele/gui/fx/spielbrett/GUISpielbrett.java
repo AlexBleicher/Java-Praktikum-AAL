@@ -13,14 +13,20 @@ public class GUISpielbrett {
     public Button btnPlay;
     private SpielManager spielManager = SpielManager.getInstance();
     public Label lblWuerfeln;
+    public Label lblText;
+
+    public boolean beendet=false;
+    public boolean gewuerfelt;
 
     public int wuerfeln(ActionEvent actionEvent) {
 
-        int gewuerfelt = (int) (Math.random() * 6) + 1;
-        lblWuerfeln.setText("Du hast eine " + gewuerfelt + " gewürfelt!");
+        int hatgewuerfelt = (int) (Math.random() * 6) + 1;
+        lblWuerfeln.setText("Du hast eine " + hatgewuerfelt + " gewürfelt!");
         lblWuerfeln.setVisible(true);
-        spielManager.setZahlGewuerfelt(gewuerfelt);
-        return gewuerfelt;
+        spielManager.setZahlGewuerfelt(hatgewuerfelt);
+        gewuerfelt=true;
+        notifyAll();
+        return hatgewuerfelt;
 
     }
 
@@ -28,6 +34,7 @@ public class GUISpielbrett {
         btnPlay.setVisible(false);
         lblWuerfeln.setText("Starter: " + spielManager.getStarter().getName());
         lblWuerfeln.setVisible(true);
+        lblText.setText("Das Spiel beginnt! Starter zieht zuerst!");
     }
 
     public void move(ActionEvent actionEvent) {
@@ -49,6 +56,5 @@ public class GUISpielbrett {
                 break;
         }
     }
-
 }
 
