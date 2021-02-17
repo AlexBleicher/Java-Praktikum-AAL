@@ -1,6 +1,7 @@
 package de.azubi.spiele.gui.fx.spielbrett;
 
 import de.aal.spiel.core.SpielManager;
+import de.aal.spiel.core.Spieler;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -23,11 +24,10 @@ public class GUISpielbrett {
 
     }
 
-    public void spielen(ActionEvent actionEvent) {
+    public void spielenStarten(ActionEvent actionEvent) {
         btnPlay.setVisible(false);
-        lblWuerfeln.setText("Das Spiel beginnt");
+        lblWuerfeln.setText("Starter: " + spielManager.getStarter().getName());
         lblWuerfeln.setVisible(true);
-        spielManager.spielzug(spielManager.getStarter());
     }
 
     public void move(ActionEvent actionEvent) {
@@ -49,5 +49,6 @@ public class GUISpielbrett {
                 break;
         }
     }
+
 }
 

@@ -37,26 +37,27 @@ public class SpielManager {
             }
         }
         spielbrett.generiereFelder();
-        int aktuellesFeld = 0;
+        int aktuellesFeld = 1;
         for (Spieler spieler : spiellogik.getSpielerList()) {
             spieler.setStartFeld(spielbrett.getFelder().get(aktuellesFeld));
             aktuellesFeld += 10;
             List<Feld> ziel = new ArrayList<>();
-            for (int i = 0; i < 4; i++) {
+            for (int i = 1; i <= 4; i++) {
                 Feld nFeld = new Feld(40 + i);
                 ziel.add(nFeld);
             }
             spieler.setZiel(ziel);
         }
-        starter = spiellogik.getSpielerList().get((int) (Math.random() * (spiellogik.getSpielerList().size() - 1)) + 1);
+        starter = spiellogik.getSpielerList().get((int) (Math.random() * (spiellogik.getSpielerList().size() - 1)));
     }
 
-    public void spielerAendern(Spieler spielerDran) {
+    public Spieler spielerAendern(Spieler spielerDran) {
         if (spiellogik.getSpielerList().indexOf(spielerDran) == (spiellogik.getSpielerList().size() - 1)) {
             spielerDran = spiellogik.getSpielerList().get(0);
         } else {
             spielerDran = spiellogik.getSpielerList().get(spiellogik.getSpielerList().indexOf(spielerDran) + 1);
         }
+        return spielerDran;
 
     }
 
