@@ -1,8 +1,9 @@
 package de.azubi.spiele.gui.fx.startseite;
 
-import de.aal.spiel.core.LogikStart;
+//import de.aal.spiel.core.LogikStart;
 import de.aal.spiel.core.SpielManager;
-import de.aal.spiel.core.Spiellogik;
+import de.aal.spiel.core.Spieler;
+//import de.aal.spiel.core.Spiellogik;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,12 +25,12 @@ public class GUIStartseite {
     private TextField tfName;
 
     private SpielManager spielManager = new SpielManager();
-    private Spiellogik spiellogik = new Spiellogik();
-    private LogikStart logikStart = new LogikStart(spiellogik, spielManager);
+    //private Spiellogik spiellogik = new Spiellogik();
+    //private LogikStart logikStart = new LogikStart(spiellogik, spielManager);
 
-    public void eintragen(ActionEvent actionEvent) {
+    public void eintragen(ActionEvent actionEvent) throws Exception{
         String name = tfName.getText();
-        logikStart.spielerErstellen(name);
+        spielManager.getSpiellogik().addSpieler(new Spieler(name));
         tfName.setText("");
         taSpieler.setText(taSpieler.getText() + name + "\n");
     }
@@ -46,6 +47,6 @@ public class GUIStartseite {
         stage.setTitle("Mensch Ärgere dich nicht!");
         stage.show();
 
-        logikStart.spielStarten();
+        spielManager.spielVorbereiten();
     }
 }

@@ -15,10 +15,10 @@ public class SpielManager {
     private int zahlGewuerfelt;
 
     public SpielManager() {
-        spielStarten();
+
     }
 
-    public void spielStarten() {
+    public void spielVorbereiten() {
         for (int i = 0; i < spiellogik.getSpielerList().size(); i++) {
             Spieler aktuellerSpieler = spiellogik.getSpielerList().get(i);
             Haus neuesHaus = new Haus();
