@@ -1,9 +1,8 @@
-import de.aal.spiel.core.LogikStart;
 import de.aal.spiel.core.SpielManager;
-import de.aal.spiel.core.Spiellogik;
+import de.aal.spiel.core.Spieler;
 import org.junit.*;
 
-public class LogikStartTest{
+public class LogikStartTest {
 
     @Test
     public void spielerErstellen() throws Exception {
@@ -11,18 +10,20 @@ public class LogikStartTest{
 
         SpielManager spielManager = new SpielManager();
 
-        spielManager.getStartLogik().spielerErstellen("Hans");
+        spielManager.getSpiellogik().addSpieler(new Spieler("Hansi"));
 
         Assert.assertEquals(spielManager.getSpiellogik().getSpielerList().size(), 1);
 
     }
+
     @Test
     public void spielstarten() throws Exception {
         SpielManager spielManager = new SpielManager();
 
-        spielManager.getStartLogik().spielerErstellen("Hans");
-        spielManager.getStartLogik().spielerErstellen("Dieter");
-        spielManager.getStartLogik().spielStarten();
+        spielManager.setZahlGewuerfelt(6);
+        spielManager.getSpiellogik().addSpieler(new Spieler("Hans"));
+        spielManager.getSpiellogik().addSpieler(new Spieler("Dieter"));
+        spielManager.spielVorbereiten();
 
         Assert.assertEquals(spielManager.getSpielbrett().getFelder().size(), 40);
     }

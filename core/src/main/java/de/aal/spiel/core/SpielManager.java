@@ -51,6 +51,7 @@ public class SpielManager {
         starter = spiellogik.getSpielerList().get((int) (Math.random() * (spiellogik.getSpielerList().size() - 1)));
     }
 
+
     public Spieler spielerAendern(Spieler spielerDran) {
         if (spiellogik.getSpielerList().indexOf(spielerDran) == (spiellogik.getSpielerList().size() - 1)) {
             spielerDran = spiellogik.getSpielerList().get(0);
