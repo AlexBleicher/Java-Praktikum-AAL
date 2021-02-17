@@ -1,4 +1,4 @@
-package de.aal.spiel.core;
+/*package de.aal.spiel.core;
 
 public class LogikStart {
 
@@ -18,4 +18,4 @@ public class LogikStart {
     public void spielStarten() {
         spielmanager.spielStarten();
     }
-}
+}*/
