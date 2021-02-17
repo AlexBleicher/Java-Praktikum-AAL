@@ -5,7 +5,7 @@ import java.util.List;
 
 public class SpielManager {
 
-    private LogikStart startLogik;
+    //private LogikStart startLogik;
     private Spiellogik spiellogik = new Spiellogik();
     private Spielbrett spielbrett = new Spielbrett();
     private List<Figur> figurenListe = new ArrayList<>();
@@ -15,7 +15,7 @@ public class SpielManager {
     private int zahlGewuerfelt;
 
     public SpielManager() {
-        startLogik = new LogikStart(spiellogik, this);
+        spielStarten();
     }
 
     public void spielStarten() {
@@ -45,7 +45,6 @@ public class SpielManager {
             spieler.setZiel(ziel);
         }
         starter = spiellogik.getSpielerList().get((int) (Math.random() * (spiellogik.getSpielerList().size() - 1)) + 1);
-        //spielen(starter);
     }
 
     public void spielen(Spieler starter) {
@@ -120,9 +119,9 @@ public class SpielManager {
         return spielbrett;
     }
 
-    public LogikStart getStartLogik() {
+   /* public LogikStart getStartLogik() {
         return startLogik;
-    }
+    }*/
 
     public Spiellogik getSpiellogik() {
         return spiellogik;
