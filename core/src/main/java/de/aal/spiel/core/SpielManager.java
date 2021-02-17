@@ -58,7 +58,6 @@ public class SpielManager {
             spielerDran = spiellogik.getSpielerList().get(spiellogik.getSpielerList().indexOf(spielerDran) + 1);
         }
         return spielerDran;
-
     }
 
     public void spielzug(Spieler spielerDran) {
