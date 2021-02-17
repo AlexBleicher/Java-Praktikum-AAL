@@ -3,6 +3,7 @@ package de.aal.spiel.core;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class SpielManager {
 
     private LogikStart startLogik;
@@ -13,6 +14,8 @@ public class SpielManager {
     private boolean beendet = false;
     private Spieler starter;
     private int zahlGewuerfelt;
+    private int indexFigur;
+
 
     public SpielManager() {
         startLogik = new LogikStart(spiellogik, this);
@@ -61,16 +64,17 @@ public class SpielManager {
     }
 
     public void spielzug(Spieler spielerDran) {
-        int zahlGewuerfelt = 0;
+
+        //while Loop wenn noch nicht 3mal gewürfelt
+
         if (spielerDran.isDarfDreimalWuerfeln()) {
-            for (int i = 0; i < 3; i++) {
-                zahlGewuerfelt = 1;//Platzhalter später mit GUI verknüpft
+            for (int i = 0; i < 2; i++) {
                 if (zahlGewuerfelt == 6) {
                     break;
+                } else {
+                    zahlGewuerfelt = wuerfeln();
                 }
             }
-        } else {
-            zahlGewuerfelt = 2; //Platzhalter später mit GUI verknüpft
         }
         if (zahlGewuerfelt == 6) {
             if (spielerDran.getHaus().getEnthalteneFiguren().size() != 0) {
@@ -91,7 +95,7 @@ public class SpielManager {
     }
 
     public void figurZiehen(Spieler spielerDran, int zahlGewuerfelt) {
-        Figur figur = spielerDran.getFiguren().get(0);//Platzhalter für GUI auswahl;
+        Figur figur = spielerDran.getFiguren().get(indexFigur);
         if (figur.getGezogeneFelder() + zahlGewuerfelt < spielbrett.getFelder().size()) {
             Feld neuesFeld = figur.getFeld();
             if ((neuesFeld.getFeldnummer() + zahlGewuerfelt) >= spielbrett.getFelder().size()) {
@@ -116,6 +120,11 @@ public class SpielManager {
         }
     }
 
+    public int wuerfeln() {
+        int gewuerfelt = (int) (Math.random() * 6) + 1;
+        return gewuerfelt;
+    }
+
     public Spielbrett getSpielbrett() {
         return spielbrett;
     }
@@ -135,4 +144,9 @@ public class SpielManager {
     public void setZahlGewuerfelt(int zahlGewuerfelt) {
         this.zahlGewuerfelt = zahlGewuerfelt;
     }
+
+    public void setIndexFigur(int indexFigur) {
+        this.indexFigur = indexFigur;
+    }
 }
+
