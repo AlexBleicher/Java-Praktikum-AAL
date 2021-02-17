@@ -53,7 +53,7 @@ public class SpielManager {
     public void spielen(Spieler starter) {
         Spieler spielerDran = starter;
         while (!beendet) {
-            spielzug(spielerDran);
+             spielzug(spielerDran);
             if (spiellogik.getSpielerList().indexOf(spielerDran) == (spiellogik.getSpielerList().size() - 1)) {
                 spielerDran = spiellogik.getSpielerList().get(0);
             } else {
