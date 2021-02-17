@@ -1,6 +1,7 @@
 package de.azubi.spiele.gui.fx.startseite;
 
 //import de.aal.spiel.core.LogikStart;
+
 import de.aal.spiel.core.SpielManager;
 import de.aal.spiel.core.Spieler;
 //import de.aal.spiel.core.Spiellogik;
@@ -13,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 public class GUIStartseite {
@@ -28,7 +30,7 @@ public class GUIStartseite {
     //private Spiellogik spiellogik = new Spiellogik();
     //private LogikStart logikStart = new LogikStart(spiellogik, spielManager);
 
-    public void eintragen(ActionEvent actionEvent) throws Exception{
+    public void eintragen(ActionEvent actionEvent) throws Exception {
         String name = tfName.getText();
         spielManager.getSpiellogik().addSpieler(new Spieler(name));
         tfName.setText("");
