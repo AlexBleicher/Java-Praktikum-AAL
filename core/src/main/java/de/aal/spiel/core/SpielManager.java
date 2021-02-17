@@ -6,6 +6,7 @@ import java.util.List;
 
 public class SpielManager {
 
+    private static final SpielManager instance = new SpielManager();
     //private LogikStart startLogik;
     private Spiellogik spiellogik = new Spiellogik();
     private Spielbrett spielbrett = new Spielbrett();
@@ -36,30 +37,28 @@ public class SpielManager {
             }
         }
         spielbrett.generiereFelder();
-        int aktuellesFeld = 0;
+        int aktuellesFeld = 1;
         for (Spieler spieler : spiellogik.getSpielerList()) {
             spieler.setStartFeld(spielbrett.getFelder().get(aktuellesFeld));
             aktuellesFeld += 10;
             List<Feld> ziel = new ArrayList<>();
-            for (int i = 0; i < 4; i++) {
+            for (int i = 1; i <= 4; i++) {
                 Feld nFeld = new Feld(40 + i);
                 ziel.add(nFeld);
             }
             spieler.setZiel(ziel);
         }
-        starter = spiellogik.getSpielerList().get((int) (Math.random() * (spiellogik.getSpielerList().size() - 1)) + 1);
+        starter = spiellogik.getSpielerList().get((int) (Math.random() * (spiellogik.getSpielerList().size() - 1)));
     }
 
-    public void spielen(Spieler starter) {
-        Spieler spielerDran = starter;
-        while (!beendet) {
-             spielzug(spielerDran);
-            if (spiellogik.getSpielerList().indexOf(spielerDran) == (spiellogik.getSpielerList().size() - 1)) {
-                spielerDran = spiellogik.getSpielerList().get(0);
-            } else {
-                spielerDran = spiellogik.getSpielerList().get(spiellogik.getSpielerList().indexOf(spielerDran) + 1);
-            }
+
+    public Spieler spielerAendern(Spieler spielerDran) {
+        if (spiellogik.getSpielerList().indexOf(spielerDran) == (spiellogik.getSpielerList().size() - 1)) {
+            spielerDran = spiellogik.getSpielerList().get(0);
+        } else {
+            spielerDran = spiellogik.getSpielerList().get(spiellogik.getSpielerList().indexOf(spielerDran) + 1);
         }
+        return spielerDran;
     }
 
     public void spielzug(Spieler spielerDran) {
@@ -117,6 +116,7 @@ public class SpielManager {
                 setBeendet(true);
             }
         }
+        spielerAendern(spielerDran);
     }
 
     public int wuerfeln() {
@@ -150,6 +150,10 @@ public class SpielManager {
 
     public Spieler getStarter() {
         return starter;
+    }
+
+    public static SpielManager getInstance() {
+        return instance;
     }
 }
 

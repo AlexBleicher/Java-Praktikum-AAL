@@ -9,7 +9,7 @@ public class Spielbrett {
     private List<Haus> haeuser = new ArrayList<>();
 
     public void generiereFelder() {
-        for (int i = 0; i < 40; i++) {
+        for (int i = 1; i <= 40; i++) {
             Feld currentField = new Feld(i + 1);
             felder.add(currentField);
         }

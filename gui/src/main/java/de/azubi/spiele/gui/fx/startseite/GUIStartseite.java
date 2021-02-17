@@ -26,7 +26,7 @@ public class GUIStartseite {
     @FXML
     private TextField tfName;
 
-    private SpielManager spielManager = new SpielManager();
+    private SpielManager spielManager = SpielManager.getInstance();
     //private Spiellogik spiellogik = new Spiellogik();
     //private LogikStart logikStart = new LogikStart(spiellogik, spielManager);
 
@@ -50,5 +50,6 @@ public class GUIStartseite {
         stage.show();
 
         spielManager.spielVorbereiten();
+        System.out.println(spielManager.getStarter().getName());
     }
 }
