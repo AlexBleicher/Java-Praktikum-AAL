@@ -1,6 +1,7 @@
 package de.azubi.spiele.gui.fx.spielbrett;
 
 import de.aal.spiel.core.SpielManager;
+import de.aal.spiel.core.Spieler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,6 +9,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
 
 import java.util.List;
 
@@ -19,14 +21,22 @@ public class GUISpielbrett {
     public Button btnPlay;
     private SpielManager spielManager = SpielManager.getInstance();
     public Label lblWuerfeln;
+    public Label lblText;
+
+    public boolean gewuerfelt;
+    public boolean gezogen;
+
+    public Spieler spielerDran = spielManager.getStarter();
 
     public int wuerfeln(ActionEvent actionEvent) {
 
-        int gewuerfelt = (int) (Math.random() * 6) + 1;
-        lblWuerfeln.setText("Du hast eine " + gewuerfelt + " gewürfelt!");
+        int hatgewuerfelt = (int) (Math.random() * 6) + 1;
+        lblWuerfeln.setText("Du hast eine " + hatgewuerfelt + " gewürfelt!");
         lblWuerfeln.setVisible(true);
-        spielManager.setZahlGewuerfelt(gewuerfelt);
-        return gewuerfelt;
+        spielManager.setZahlGewuerfelt(hatgewuerfelt);
+        gewuerfelt = true;
+        notifyAll();
+        return hatgewuerfelt;
 
     }
 
@@ -35,6 +45,8 @@ public class GUISpielbrett {
         btnPlay.setVisible(false);
         lblWuerfeln.setText("Starter: " + spielManager.getStarter().getName());
         lblWuerfeln.setVisible(true);
+        lblText.setText("Das Spiel beginnt! Starter zieht zuerst!");
+        lblText.setVisible(true);
     }
 
     public void move(ActionEvent actionEvent) {
@@ -54,6 +66,17 @@ public class GUISpielbrett {
             case "Figur 4":
                 spielManager.setIndexFigur(3);
                 break;
+        }
+        gezogen = true;
+    }
+
+    public void zugBeenden() {
+        if (gewuerfelt && gezogen) {
+            spielManager.spielerAendern(spielerDran);
+            lblWuerfeln.setText("");
+            lblText.setText("");
+        } else {
+            lblText.setText("Noch nicht alle Funktionen ausgeführt!");
         }
     }
 
