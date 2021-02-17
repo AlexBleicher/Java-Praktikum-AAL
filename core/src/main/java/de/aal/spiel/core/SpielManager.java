@@ -12,6 +12,7 @@ public class SpielManager {
     private List<Haus> hausListe = new ArrayList<>();
     private boolean beendet = false;
     private Spieler starter;
+    private int zahlGewuerfelt;
 
     public SpielManager() {
         startLogik = new LogikStart(spiellogik, this);
@@ -125,5 +126,13 @@ public class SpielManager {
 
     public Spiellogik getSpiellogik() {
         return spiellogik;
+    }
+
+    public int getZahlGewuerfelt() {
+        return zahlGewuerfelt;
+    }
+
+    public void setZahlGewuerfelt(int zahlGewuerfelt) {
+        this.zahlGewuerfelt = zahlGewuerfelt;
     }
 }

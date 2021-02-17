@@ -7,11 +7,17 @@ public class Spiellogik {
 
     private List<Spieler> spielerList = new ArrayList<>();
 
-    public void addSpieler(Spieler p) {
-        if (spielerList.size() < 4) {
-            spielerList.add(p);
-        } else {
-            System.out.println("Fehler!");
+    public void addSpieler(Spieler p) throws Exception{
+       try{
+           if(spielerList.size()>=4){
+               throw new Exception();
+           }
+           else {
+               spielerList.add(p);
+           }
+        }
+       catch (Exception e){
+           System.out.println("FEHLER!");
         }
     }
 
