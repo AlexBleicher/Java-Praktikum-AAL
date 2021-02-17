@@ -27,7 +27,7 @@ public class GUIStartseite {
     private Spiellogik spiellogik = new Spiellogik();
     private LogikStart logikStart = new LogikStart(spiellogik, spielManager);
 
-    public void eintragen(ActionEvent actionEvent) {
+    public void eintragen(ActionEvent actionEvent) throws Exception {
         String name = tfName.getText();
         logikStart.spielerErstellen(name);
         tfName.setText("");
