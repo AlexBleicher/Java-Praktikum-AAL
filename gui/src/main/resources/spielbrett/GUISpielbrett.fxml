@@ -81,7 +81,7 @@
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="file://figuren/red.png"/>
+                                                <Image url="/figuren/black.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -92,7 +92,7 @@
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="file://figuren/red.png"/>
+                                                <Image url="/figuren/black.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -144,7 +144,7 @@
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="file://figuren/blue.png"/>
+                                                <Image url="/figuren/black.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -155,7 +155,7 @@
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="file://figuren/blue.png"/>
+                                                <Image url="/figuren/black.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -170,7 +170,7 @@
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="file://figuren/red.png"/>
+                                                <Image url="/figuren/black.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -181,7 +181,7 @@
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="file://figuren/red.png"/>
+                                                <Image url="/figuren/black.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -233,7 +233,7 @@
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="file://figuren/blue.png"/>
+                                                <Image url="/figuren/black.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -244,7 +244,7 @@
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="file://figuren/blue.png"/>
+                                                <Image url="/figuren/black.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -729,7 +729,7 @@
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="file://figuren/yellow.png"/>
+                                                <Image url="/figuren/black.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -740,7 +740,7 @@
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="file://figuren/yellow.png"/>
+                                                <Image url="/figuren/black.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -792,7 +792,7 @@
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="file://figuren/green.png"/>
+                                                <Image url="/figuren/black.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -803,7 +803,7 @@
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true" smooth="false">
                                             <image>
-                                                <Image url="file://figuren/green.png"/>
+                                                <Image url="/figuren/black.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -818,7 +818,7 @@
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="file://figuren/yellow.png"/>
+                                                <Image url="/figuren/black.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -829,7 +829,7 @@
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="file://figuren/yellow.png"/>
+                                                <Image url="/figuren/black.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -881,7 +881,7 @@
                                     <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                preserveRatio="true">
                                         <image>
-                                            <Image url="file://figuren/green.png"/>
+                                            <Image url="/figuren/black.png"/>
                                         </image>
                                     </ImageView>
                                 </graphic>
@@ -892,7 +892,7 @@
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true">
                                             <image>
-                                                <Image url="file://figuren/green.png"/>
+                                                <Image url="/figuren/black.png"/>
                                             </image>
                                         </ImageView>
                                     </graphic>
