@@ -2,14 +2,12 @@ package de.azubi.spiele.gui.fx.spielbrett;
 
 import de.aal.spiel.core.SpielManager;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 
 public class GUISpielbrett {
 
     public ChoiceBox choiceFigur;
-    public Button btnMove;
     private SpielManager spielManager = new SpielManager();
     public Label lblWuerfeln;
 
