@@ -10,7 +10,7 @@ public class LogikStart {
         this.spielmanager = manager;
     }
 
-    public void spielerErstellen(String name) {
+    public void spielerErstellen(String name) throws Exception{
         Spieler neuerSpieler = new Spieler(name);
         spiellogik.addSpieler(neuerSpieler);
     }
