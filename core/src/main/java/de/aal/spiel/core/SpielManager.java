@@ -25,11 +25,15 @@ public class SpielManager {
     public void spielVorbereiten() {
         for (int i = 0; i < spiellogik.getSpielerList().size(); i++) {
             Spieler aktuellerSpieler = spiellogik.getSpielerList().get(i);
+            String[] farben = {"red", "blue", "green", "yellow"};
+            for (int j = 0; j < farben.length; j++) {
+                aktuellerSpieler.setFarbe(farben[j]);
+            }
             Haus neuesHaus = new Haus();
             neuesHaus.setSpieler(aktuellerSpieler);
             hausListe.add(neuesHaus);
             aktuellerSpieler.setHaus(neuesHaus);
-            for (int j = 0; j < 4; j++) {
+            for (int k = 0; k < 4; k++) {
                 Figur neueFigur = new Figur(aktuellerSpieler);
                 aktuellerSpieler.addFigur(neueFigur);
                 figurenListe.add(neueFigur);

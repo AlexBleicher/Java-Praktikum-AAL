@@ -23,20 +23,20 @@ public class GUISpielbrett {
     public Label lblWuerfeln;
     public Label lblText;
 
-    public boolean gewuerfelt;
+    public boolean hatgewuerfelt;
     public boolean gezogen;
 
     public Spieler spielerDran = spielManager.getStarter();
 
     public int wuerfeln(ActionEvent actionEvent) {
 
-        int hatgewuerfelt = (int) (Math.random() * 6) + 1;
-        lblWuerfeln.setText("Du hast eine " + hatgewuerfelt + " gewürfelt!");
+        int gewuerfelt = (int) (Math.random() * 6) + 1;
+        lblWuerfeln.setText("Du hast eine " + gewuerfelt + " gewürfelt!");
         lblWuerfeln.setVisible(true);
-        spielManager.setZahlGewuerfelt(hatgewuerfelt);
-        gewuerfelt = true;
+        spielManager.setZahlGewuerfelt(gewuerfelt);
+        hatgewuerfelt = true;
         notifyAll();
-        return hatgewuerfelt;
+        return gewuerfelt;
 
     }
 
@@ -71,10 +71,10 @@ public class GUISpielbrett {
     }
 
     public void zugBeenden() {
-        if (gewuerfelt && gezogen) {
-            spielManager.spielerAendern(spielerDran);
+        if (hatgewuerfelt && gezogen) {
+            spielerDran = spielManager.spielerAendern(spielerDran);
             lblWuerfeln.setText("");
-            lblText.setText("");
+            lblText.setText("Spieler dran: " + spielerDran.getName());
         } else {
             lblText.setText("Noch nicht alle Funktionen ausgeführt!");
         }
