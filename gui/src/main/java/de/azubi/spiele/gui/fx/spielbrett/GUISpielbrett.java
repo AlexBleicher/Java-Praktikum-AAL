@@ -66,6 +66,7 @@ public class GUISpielbrett {
             lblWuerfeln.setText("Du darfst nicht mehr wuerfeln!");
             lblWuerfeln.setVisible(true);
         }
+        spielerDran.checkdarfDreimalWuerfeln();
     }
 
     public void spielenStarten(ActionEvent actionEvent) {
