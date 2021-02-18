@@ -32,9 +32,11 @@ public class GUIStartseite {
 
     public void eintragen(ActionEvent actionEvent) throws Exception {
         String name = tfName.getText();
-        spielManager.getSpiellogik().addSpieler(new Spieler(name));
-        tfName.setText("");
-        taSpieler.setText(taSpieler.getText() + name + "\n");
+        if (!name.isEmpty()) {
+            spielManager.getSpiellogik().addSpieler(new Spieler(name));
+            tfName.setText("");
+            taSpieler.setText(taSpieler.getText() + name + "\n");
+        }
     }
 
     public void starten(ActionEvent actionEvent) throws IOException {
