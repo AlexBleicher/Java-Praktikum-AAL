@@ -1,5 +1,6 @@
 package de.azubi.spiele.gui.fx.spielbrett;
 
+import de.aal.spiel.core.Figur;
 import de.aal.spiel.core.SpielManager;
 import de.aal.spiel.core.Spieler;
 import javafx.event.ActionEvent;
@@ -10,14 +11,13 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-
 import java.util.List;
 
 public class GUISpielbrett {
 
     @FXML
     private List<Button> fields;
-    public ChoiceBox choiceFigur;
+
     public Button btnPlay;
     private SpielManager spielManager = SpielManager.getInstance();
     public Label lblWuerfeln;
@@ -64,26 +64,6 @@ public class GUISpielbrett {
         lblText.setVisible(true);
     }
 
-    public void move(ActionEvent actionEvent) {
-
-        String figur = (String) choiceFigur.getSelectionModel().getSelectedItem();
-
-        switch (figur) {
-            case "Figur 1":
-                spielManager.setIndexFigur(0);
-                break;
-            case "Figur 2":
-                spielManager.setIndexFigur(1);
-                break;
-            case "Figur 3":
-                spielManager.setIndexFigur(2);
-                break;
-            case "Figur 4":
-                spielManager.setIndexFigur(3);
-                break;
-        }
-        gezogen = true;
-    }
 
     public void zugBeenden() {
         if (hatgewuerfelt && gezogen) {
@@ -95,13 +75,51 @@ public class GUISpielbrett {
         }
     }
 
+    @FXML
+    public void getButtonPressedNumber(ActionEvent event){
+        Button btn = (Button) event.getSource();
+        String fieldName = btn.getId();
+        int feld = getFieldNumber(fieldName);
+        checkIfFigureOnField(feld);
+    }
+
+    public int getFieldNumber(String fieldName){
+        int fieldNumber = Integer.parseInt(fieldName.replaceAll("\\D+",""));
+        return fieldNumber;
+    }
+
+    public void checkIfFigureOnField(int feld){
+        for (Figur figur : spielerDran.getFiguren()) {
+            if(figur.getFeld().equals(feld)){
+                int indexFigur = spielerDran.getFiguren().indexOf(figur);
+                spielManager.setIndexFigur(indexFigur);
+                gezogen = true;
+                int nextFeld = feld + spielManager.getZahlGewuerfelt();
+                String buttonNow = "btnField" + feld;
+                String buttonNext = "btnField" + nextFeld;
+                for (Button field : fields) {
+                    if(field.getId().equals(buttonNext)){
+                        setIcon(field, spielerDran.getFarbe());
+                    }
+                    if(field.getId().equals(buttonNow)){
+                        field.setGraphic(null);
+                    }
+                }
+            }
+        }
+    }
+
     public void setBaseIcons(){
         for (Button field : fields) {
             if(field.getId().contains("Base")){
-                Image image = new Image("/figuren/black.png", 10, 10, true, true);
-                field.setGraphic(new ImageView(image));
+                setIcon(field, "black");
             }
         }
+    }
+
+    public void setIcon(Button field, String color) {
+        Image image = new Image("/figuren/" + color + ".png", 10, 10, true, true);
+        field.setGraphic(new ImageView(image));
     }
 }
 
