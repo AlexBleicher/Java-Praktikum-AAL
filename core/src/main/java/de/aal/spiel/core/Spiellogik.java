@@ -11,7 +11,6 @@ public class Spiellogik {
        try{
            if(spielerList.size()<=4){
                spielerList.add(p);
-               System.out.println("Eingefügt!");
            }
            else {
                throw new Exception();

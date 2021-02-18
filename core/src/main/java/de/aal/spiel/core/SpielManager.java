@@ -74,7 +74,6 @@ public class SpielManager {
                 Figur figur = spielerDran.getHaus().getEnthalteneFiguren().get(0);
                 figur.rauskommen();
                 spielerDran.getHaus().getEnthalteneFiguren().remove(figur);
-                System.out.println("Figur ist nun auf Feld: " + figur.getFeld().getFeldnummer());
             }
         } else {
             Figur figur = spielerDran.getFiguren().get(indexFigur);

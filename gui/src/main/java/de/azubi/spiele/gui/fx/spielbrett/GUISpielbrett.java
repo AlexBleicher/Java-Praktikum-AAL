@@ -48,7 +48,6 @@ public class GUISpielbrett {
             anzahlWuerfe++;
             if (gewuerfelt == 6) {
                 if(spielerDran.getHaus().getEnthalteneFiguren().size()>0){
-                    System.out.println(spielerDran.getHaus().getEnthalteneFiguren().get(0).getFeld());
                     spielManager.figurZiehen(spielerDran, gewuerfelt);
                     setIcon(redBase1, "blank");
                     setIcon(btnField1, spielerDran.getFarbe());
@@ -98,7 +97,6 @@ public class GUISpielbrett {
     @FXML
     public void getButtonPressedNumber(ActionEvent event) {
         Button btn = (Button) event.getSource();
-        System.out.println(fields.indexOf(btn));
         String fieldName = btn.getId();
 
         int feld = getFieldNumber(fieldName);
