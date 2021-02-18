@@ -23,21 +23,36 @@ public class GUISpielbrett {
     public Label lblWuerfeln;
     public Label lblText;
 
+    public int zahlGewuerfelt;
     public boolean hatgewuerfelt;
     public boolean gezogen;
+    public int anzahlWuerfe=0;
 
     public Spieler spielerDran = spielManager.getStarter();
 
-    public int wuerfeln(ActionEvent actionEvent) {
-
-        int gewuerfelt = (int) (Math.random() * 6) + 1;
-        lblWuerfeln.setText("Du hast eine " + gewuerfelt + " gewürfelt!");
-        lblWuerfeln.setVisible(true);
-        spielManager.setZahlGewuerfelt(gewuerfelt);
-        hatgewuerfelt = true;
-        notifyAll();
-        return gewuerfelt;
-
+    public void wuerfeln(ActionEvent actionEvent) {
+        if(spielerDran.isDarfNochWuerfeln()) {
+            int gewuerfelt = (int) (Math.random() * 6) + 1;
+            lblWuerfeln.setText("Du hast eine " + gewuerfelt + " gewürfelt!");
+            lblWuerfeln.setVisible(true);
+            spielManager.setZahlGewuerfelt(gewuerfelt);
+            zahlGewuerfelt=gewuerfelt;
+            anzahlWuerfe++;
+            if(spielerDran.isDarfDreimalWuerfeln()&&anzahlWuerfe<3){
+                spielerDran.setDarfNochWuerfeln(true);
+            }
+            else if(gewuerfelt==6){
+                spielerDran.setDarfNochWuerfeln(true);
+            }
+            else{
+                spielerDran.setDarfNochWuerfeln(false);
+                hatgewuerfelt=true;
+            }
+        }
+        else{
+            lblWuerfeln.setText("Du darfst nicht mehr wuerfeln!");
+            lblWuerfeln.setVisible(true);
+        }
     }
 
     public void spielenStarten(ActionEvent actionEvent) {

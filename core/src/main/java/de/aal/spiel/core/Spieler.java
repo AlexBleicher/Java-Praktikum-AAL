@@ -13,6 +13,7 @@ public class Spieler {
     private Feld startFeld = new Feld(0); //Platzhalter
     public List<Feld> ziel = new ArrayList<>();
     public String farbe;
+    private boolean darfNochWuerfeln;
 
     public Spieler(String name) {
         this.name = name;
@@ -72,5 +73,13 @@ public class Spieler {
 
     public void setFarbe(String farbe) {
         this.farbe = farbe;
+    }
+
+    public boolean isDarfNochWuerfeln() {
+        return darfNochWuerfeln;
+    }
+
+    public void setDarfNochWuerfeln(boolean darfNochWuerfeln) {
+        this.darfNochWuerfeln = darfNochWuerfeln;
     }
 }
