@@ -63,65 +63,45 @@ public class SpielManager {
         return spielerDran;
     }
 
-    public void spielzug(Spieler spielerDran) {
-
-        //while Loop wenn noch nicht 3mal gewürfelt
-
-        if (spielerDran.isDarfDreimalWuerfeln()) {
-            for (int i = 0; i < 2; i++) {
-                if (zahlGewuerfelt == 6) {
-                    break;
-                } else {
-                    zahlGewuerfelt = wuerfeln();
-                }
-            }
-        }
-        if (zahlGewuerfelt == 6) {
-            if (spielerDran.getHaus().getEnthalteneFiguren().size() != 0) {
-                Figur figur = spielerDran.getHaus().getEnthalteneFiguren().get(0);
-                figur.rauskommen();
-                spielerDran.getHaus().getEnthalteneFiguren().remove(figur);
-            } else {
-                figurZiehen(spielerDran, zahlGewuerfelt);
-            }
-            spielzug(spielerDran);
-        } else {
-            figurZiehen(spielerDran, zahlGewuerfelt);
-        }
-    }
 
     public void setBeendet(boolean beendet) {
         this.beendet = beendet;
     }
 
     public void figurZiehen(Spieler spielerDran, int zahlGewuerfelt) {
-
-        Figur figur = spielerDran.getFiguren().get(indexFigur);
-
-        if (figur.getGezogeneFelder() + zahlGewuerfelt < spielbrett.getFelder().size()) {
-            Feld neuesFeld = figur.getFeld();
-            if ((neuesFeld.getFeldnummer() + zahlGewuerfelt) >= spielbrett.getFelder().size()) {
-                neuesFeld = spielbrett.getFelder().get(neuesFeld.getFeldnummer() + zahlGewuerfelt - spielbrett.getFelder().size());
-            } else {
-                neuesFeld = spielbrett.getFelder().get(neuesFeld.getFeldnummer() + zahlGewuerfelt);
+        if (zahlGewuerfelt == 6) {
+            if (spielerDran.getHaus().getEnthalteneFiguren().size() != 0) {
+                Figur figur = spielerDran.getHaus().getEnthalteneFiguren().get(0);
+                figur.rauskommen();
+                spielerDran.getHaus().getEnthalteneFiguren().remove(figur);
             }
-            figur.setFeld(neuesFeld);
-            for (Figur andereFigur : figurenListe) {
-                if (andereFigur.getFeld().equals(neuesFeld)) {
-                    andereFigur.geschlagen();
-                    break;
+        } else {
+            Figur figur = spielerDran.getFiguren().get(indexFigur);
+            if (figur.getGezogeneFelder() + zahlGewuerfelt < spielbrett.getFelder().size()) {
+                Feld neuesFeld = figur.getFeld();
+                if ((neuesFeld.getFeldnummer() + zahlGewuerfelt) >= spielbrett.getFelder().size()) {
+                    neuesFeld = spielbrett.getFelder().get(neuesFeld.getFeldnummer() + zahlGewuerfelt - spielbrett.getFelder().size());
+                } else {
+                    neuesFeld = spielbrett.getFelder().get(neuesFeld.getFeldnummer() + zahlGewuerfelt);
+                }
+                figur.setFeld(neuesFeld);
+                for (Figur andereFigur : figurenListe) {
+                    if (andereFigur.getFeld().equals(neuesFeld)) {
+                        andereFigur.geschlagen();
+                        break;
+                    }
+                }
+                figur.setGezogeneFelder(figur.getGezogeneFelder() + zahlGewuerfelt);
+            } else if (spielbrett.getFelder().size() < figur.getGezogeneFelder() + zahlGewuerfelt && figur.getGezogeneFelder() + zahlGewuerfelt <= spielbrett.getFelder().size() + 4) {
+                figur.getSpieler().setFigurenImZiel(figur.getSpieler().getFigurenImZiel() + 1);
+                figur.setFeld(figur.getSpieler().getZiel().get(figur.getGezogeneFelder() + zahlGewuerfelt - 41));
+                if (figur.getSpieler().getFigurenImZiel() == 4) {
+                    setBeendet(true);
                 }
             }
-            figur.setGezogeneFelder(figur.getGezogeneFelder() + zahlGewuerfelt);
-        } else if (spielbrett.getFelder().size() < figur.getGezogeneFelder() + zahlGewuerfelt && figur.getGezogeneFelder() + zahlGewuerfelt <= spielbrett.getFelder().size() + 4) {
-            figur.getSpieler().setFigurenImZiel(figur.getSpieler().getFigurenImZiel() + 1);
-            figur.setFeld(figur.getSpieler().getZiel().get(figur.getGezogeneFelder() + zahlGewuerfelt - 41));
-            if (figur.getSpieler().getFigurenImZiel() == 4) {
-                setBeendet(true);
-            }
         }
-        spielerAendern(spielerDran);
     }
+
 
     public int wuerfeln() {
         int gewuerfelt = (int) (Math.random() * 6) + 1;
