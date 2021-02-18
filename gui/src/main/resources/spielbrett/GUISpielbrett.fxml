@@ -67,7 +67,7 @@
                     <children>
                         <HBox alignment="CENTER" prefHeight="36.0" prefWidth="580.0" spacing="20.0">
                             <children>
-                                <Button fx:id="redBase1" mnemonicParsing="false"
+                                <Button fx:id="redBase1" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -75,7 +75,7 @@
                                         </ImageView>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="redBase2" mnemonicParsing="false"
+                                <Button fx:id="redBase2" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -124,7 +124,7 @@
                                         visible="false"/>
 
 
-                                <Button fx:id="blueBase1" mnemonicParsing="false"
+                                <Button fx:id="blueBase1" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -132,7 +132,7 @@
                                         </ImageView>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="blueBase2" mnemonicParsing="false"
+                                <Button fx:id="blueBase2" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -144,7 +144,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="36.0" prefWidth="580.0" spacing="20.0">
                             <children>
-                                <Button fx:id="redBase3" mnemonicParsing="false"
+                                <Button fx:id="redBase3" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -152,7 +152,7 @@
                                         </ImageView>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="redBase4" mnemonicParsing="false"
+                                <Button fx:id="redBase4" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -177,7 +177,7 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="blueGoal1" mnemonicParsing="false"
+                                <Button fx:id="blueGoal1" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -201,7 +201,7 @@
                                         visible="false"/>
 
 
-                                <Button fx:id="blueBase3" mnemonicParsing="false"
+                                <Button fx:id="blueBase3" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -209,7 +209,7 @@
                                         </ImageView>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="blueBase4" mnemonicParsing="false"
+                                <Button fx:id="blueBase4" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -244,7 +244,7 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="blueGoal2" mnemonicParsing="false"
+                                <Button fx:id="blueGoal2" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -301,7 +301,7 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="blueGoal3" mnemonicParsing="false"
+                                <Button fx:id="blueGoal3" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -370,7 +370,7 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="blueGoal4" mnemonicParsing="false"
+                                <Button fx:id="blueGoal4" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -423,28 +423,28 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="redGoal1" mnemonicParsing="false"
+                                <Button fx:id="redGoal1" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="redGoal2" mnemonicParsing="false"
+                                <Button fx:id="redGoal2" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="redGoal3" mnemonicParsing="false"
+                                <Button fx:id="redGoal3" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="redGoal4" mnemonicParsing="false"
+                                <Button fx:id="redGoal4" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -458,35 +458,35 @@
                                         visible="false"/>
 
 
-                                <Button fx:id="greenGoal4" mnemonicParsing="false"
+                                <Button fx:id="greenGoal4" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="greenGoal3" mnemonicParsing="false"
+                                <Button fx:id="greenGoal3" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="greenGoal2" mnemonicParsing="false"
+                                <Button fx:id="greenGoal2" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="greenGoal1" mnemonicParsing="false"
+                                <Button fx:id="greenGoal1" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="btnField20" mnemonicParsing="false"
+                                <Button fx:id="btnField20" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -531,7 +531,7 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="yellowGoal4" mnemonicParsing="false"
+                                <Button fx:id="yellowGoal4" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -600,7 +600,7 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="yellowGoal3" mnemonicParsing="false"
+                                <Button fx:id="yellowGoal3" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -657,7 +657,7 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="yellowGoal2" mnemonicParsing="false"
+                                <Button fx:id="yellowGoal2" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -691,7 +691,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="36.0" prefWidth="580.0" spacing="20.0">
                             <children>
-                                <Button fx:id="yellowBase1" mnemonicParsing="false"
+                                <Button fx:id="yellowBase1" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -699,7 +699,7 @@
                                         </ImageView>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="yellowBase2" mnemonicParsing="false"
+                                <Button fx:id="yellowBase2" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -724,7 +724,7 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="yellowGoal1" mnemonicParsing="false"
+                                <Button fx:id="yellowGoal1" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -748,7 +748,7 @@
                                         visible="false"/>
 
 
-                                <Button fx:id="greenBase1" mnemonicParsing="false"
+                                <Button fx:id="greenBase1" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -756,7 +756,7 @@
                                         </ImageView>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="greenBase2" mnemonicParsing="false"
+                                <Button fx:id="greenBase2" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -768,7 +768,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="36.0" prefWidth="580.0" spacing="20.0">
                             <children>
-                                <Button fx:id="yellowBase3" mnemonicParsing="false"
+                                <Button fx:id="yellowBase3" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -776,7 +776,7 @@
                                         </ImageView>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="yellowBase4" mnemonicParsing="false"
+                                <Button fx:id="yellowBase4" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -825,7 +825,7 @@
                                         visible="false"/>
 
 
-                                <Button fx:id="greenBase3" mnemonicParsing="false"
+                                <Button fx:id="greenBase3" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
@@ -833,7 +833,7 @@
                                         </ImageView>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="greenBase4" mnemonicParsing="false"
+                                <Button fx:id="greenBase4" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
