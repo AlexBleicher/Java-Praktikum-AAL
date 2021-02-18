@@ -49,7 +49,6 @@ public class GUISpielbrett {
             anzahlWuerfe++;
             if (gewuerfelt == 6) {
                 if (spielerDran.getHaus().getEnthalteneFiguren().size() > 0) {
-
                     spielManager.figurZiehen(spielerDran, gewuerfelt);
                     setIcon(removeFigureFromHouse(), "blank");
                     setIcon(getSpielerStart(), spielerDran.getFarbe());
@@ -70,6 +69,7 @@ public class GUISpielbrett {
             lblWuerfeln.setText("Du darfst nicht mehr wuerfeln!");
             lblWuerfeln.setVisible(true);
         }
+        spielerDran.checkdarfDreimalWuerfeln();
     }
 
     public void spielenStarten(ActionEvent actionEvent) {
@@ -178,6 +178,5 @@ public class GUISpielbrett {
         Image image = new Image("/figuren/" + color + ".png", 10, 10, true, true);
         field.setGraphic(new ImageView(image));
     }
-
 }
 
