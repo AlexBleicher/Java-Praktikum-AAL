@@ -54,8 +54,10 @@
 
                 <HBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="580.0" spacing="10.0">
                     <children>
-                        <Button fx:id="btnZugBeenden" mnemonicParsing="false" onAction="#zugBeenden" text="Zug Beenden"/>
-                        <Button fx:id="btnPlay" mnemonicParsing="false" text="Spiel starten" onAction="#spielenStarten"/>
+                        <Button fx:id="btnZugBeenden" mnemonicParsing="false" onAction="#zugBeenden"
+                                text="Zug Beenden"/>
+                        <Button fx:id="btnPlay" mnemonicParsing="false" text="Spiel starten"
+                                onAction="#spielenStarten"/>
                     </children>
                 </HBox>
 

@@ -47,17 +47,15 @@ public class GUISpielbrett {
             zahlGewuerfelt = gewuerfelt;
             anzahlWuerfe++;
             if (gewuerfelt == 6) {
-                if(spielerDran.getHaus().getEnthalteneFiguren().size()>0){
+                if (spielerDran.getHaus().getEnthalteneFiguren().size() > 0) {
                     spielManager.figurZiehen(spielerDran, gewuerfelt);
                     setIcon(redBase1, "blank");
                     setIcon(btnField1, spielerDran.getFarbe());
                 }
                 spielerDran.setDarfNochWuerfeln(true);
-            }
-            else if (spielerDran.isDarfDreimalWuerfeln() && anzahlWuerfe < 3) {
+            } else if (spielerDran.isDarfDreimalWuerfeln() && anzahlWuerfe < 3) {
                 spielerDran.setDarfNochWuerfeln(true);
-            }
-            else {
+            } else {
                 spielerDran.setDarfNochWuerfeln(false);
                 hatgewuerfelt = true;
                 if (anzahlWuerfe == 3) {
@@ -119,7 +117,8 @@ public class GUISpielbrett {
                         setIcon(btnField31, "yellow");
                         break;
                 }
-            }*/ if (fieldName.contains("Goal") && fieldName.contains(spielerDran.getFarbe())) {
+            }*/
+            if (fieldName.contains("Goal") && fieldName.contains(spielerDran.getFarbe())) {
                 spielManager.figurZiehen(spielerDran, zahlGewuerfelt);
 
             } else {
