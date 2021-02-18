@@ -26,9 +26,7 @@ public class SpielManager {
         for (int i = 0; i < spiellogik.getSpielerList().size(); i++) {
             Spieler aktuellerSpieler = spiellogik.getSpielerList().get(i);
             String[] farben = {"red", "blue", "green", "yellow"};
-            for (int j = 0; j < farben.length; j++) {
-                aktuellerSpieler.setFarbe(farben[j]);
-            }
+            aktuellerSpieler.setFarbe(farben[i]);
             Haus neuesHaus = new Haus();
             neuesHaus.setSpieler(aktuellerSpieler);
             hausListe.add(neuesHaus);
@@ -97,7 +95,9 @@ public class SpielManager {
     }
 
     public void figurZiehen(Spieler spielerDran, int zahlGewuerfelt) {
+
         Figur figur = spielerDran.getFiguren().get(indexFigur);
+
         if (figur.getGezogeneFelder() + zahlGewuerfelt < spielbrett.getFelder().size()) {
             Feld neuesFeld = figur.getFeld();
             if ((neuesFeld.getFeldnummer() + zahlGewuerfelt) >= spielbrett.getFelder().size()) {
