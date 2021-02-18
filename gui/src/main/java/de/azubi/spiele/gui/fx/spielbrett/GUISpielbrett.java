@@ -84,7 +84,7 @@ public class GUISpielbrett {
         String fieldName = btn.getId();
 
         int feld = getFieldNumber(fieldName);
-        setIcon(btn, null);
+        setIcon(btn, "blank");
         checkIfFigureOnField(feld);
 
         if (fieldName.contains("Base") && fieldName.contains(spielerDran.getFarbe()) && spielManager.getZahlGewuerfelt() == 6) {
@@ -137,7 +137,7 @@ public class GUISpielbrett {
                 setIcon(field, spielerDran.getFarbe());
             }
             if (field.getId().equals(buttonNow)) {
-                field.setGraphic(null);
+                setIcon(field, "blank");
             }
         }
     }
