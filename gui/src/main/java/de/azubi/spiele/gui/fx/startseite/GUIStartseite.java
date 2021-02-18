@@ -52,6 +52,5 @@ public class GUIStartseite {
         stage.show();
 
         spielManager.spielVorbereiten();
-        System.out.println(spielManager.getStarter().getName());
     }
 }

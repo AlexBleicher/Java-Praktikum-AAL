@@ -47,18 +47,15 @@ public class GUISpielbrett {
             zahlGewuerfelt = gewuerfelt;
             anzahlWuerfe++;
             if (gewuerfelt == 6) {
-                if(spielerDran.getHaus().getEnthalteneFiguren().size()>0){
-                    System.out.println(spielerDran.getHaus().getEnthalteneFiguren().get(0).getFeld());
+                if (spielerDran.getHaus().getEnthalteneFiguren().size() > 0) {
                     spielManager.figurZiehen(spielerDran, gewuerfelt);
                     setIcon(redBase1, "blank");
                     setIcon(btnField1, spielerDran.getFarbe());
                 }
                 spielerDran.setDarfNochWuerfeln(true);
-            }
-            else if (spielerDran.isDarfDreimalWuerfeln() && anzahlWuerfe < 3) {
+            } else if (spielerDran.isDarfDreimalWuerfeln() && anzahlWuerfe < 3) {
                 spielerDran.setDarfNochWuerfeln(true);
-            }
-            else {
+            } else {
                 spielerDran.setDarfNochWuerfeln(false);
                 hatgewuerfelt = true;
                 if (anzahlWuerfe == 3) {
@@ -98,7 +95,6 @@ public class GUISpielbrett {
     @FXML
     public void getButtonPressedNumber(ActionEvent event) {
         Button btn = (Button) event.getSource();
-        System.out.println(fields.indexOf(btn));
         String fieldName = btn.getId();
 
         int feld = getFieldNumber(fieldName);
@@ -121,7 +117,8 @@ public class GUISpielbrett {
                         setIcon(btnField31, "yellow");
                         break;
                 }
-            }*/ if (fieldName.contains("Goal") && fieldName.contains(spielerDran.getFarbe())) {
+            }*/
+            if (fieldName.contains("Goal") && fieldName.contains(spielerDran.getFarbe())) {
                 spielManager.figurZiehen(spielerDran, zahlGewuerfelt);
 
             } else {
