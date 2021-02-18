@@ -17,7 +17,7 @@ public class GUISpielbrett {
 
     @FXML
     private List<Button> fields;
-    public ChoiceBox choiceFigur;
+
     public Button btnPlay;
     private SpielManager spielManager = SpielManager.getInstance();
     public Label lblWuerfeln;
@@ -76,9 +76,9 @@ public class GUISpielbrett {
     public void checkIfFigureOnField(int feld){
         for (Figur figur : spielerDran.getFiguren()) {
             if(figur.getFeld().equals(feld)){
-
+                int indexFigur = spielerDran.getFiguren().indexOf(figur);
+                spielManager.setIndexFigur(indexFigur);
                 gezogen = true;
-
                 int nextFeld = feld + spielManager.getZahlGewuerfelt();
                 String buttonNow = "btnField" + feld;
                 String buttonNext = "btnField" + nextFeld;
