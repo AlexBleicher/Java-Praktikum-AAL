@@ -847,10 +847,8 @@
                 </VBox>
             </children>
         </VBox>
-
         <fx:define>
-            <ArrayList fx:id="fields">
-                <!-- Haeuser -->
+            <ArrayList fx:id="houses">
                 <fx:reference source="redBase1"/>
                 <fx:reference source="redBase2"/>
                 <fx:reference source="redBase3"/>
@@ -859,36 +857,20 @@
                 <fx:reference source="blueBase2"/>
                 <fx:reference source="blueBase3"/>
                 <fx:reference source="blueBase4"/>
-                <fx:reference source="yellowBase1"/>
-                <fx:reference source="yellowBase2"/>
-                <fx:reference source="yellowBase3"/>
-                <fx:reference source="yellowBase4"/>
                 <fx:reference source="greenBase1"/>
                 <fx:reference source="greenBase2"/>
                 <fx:reference source="greenBase3"/>
                 <fx:reference source="greenBase4"/>
+                <fx:reference source="yellowBase1"/>
+                <fx:reference source="yellowBase2"/>
+                <fx:reference source="yellowBase3"/>
+                <fx:reference source="yellowBase4"/>
+            </ArrayList>
+        </fx:define>
 
 
-                <!-- Ziele -->
-
-                <fx:reference source="redGoal1"/>
-                <fx:reference source="redGoal2"/>
-                <fx:reference source="redGoal3"/>
-                <fx:reference source="redGoal4"/>
-                <fx:reference source="blueGoal1"/>
-                <fx:reference source="blueGoal2"/>
-                <fx:reference source="blueGoal3"/>
-                <fx:reference source="blueGoal4"/>
-                <fx:reference source="yellowGoal1"/>
-                <fx:reference source="yellowGoal2"/>
-                <fx:reference source="yellowGoal3"/>
-                <fx:reference source="yellowGoal4"/>
-                <fx:reference source="greenGoal1"/>
-                <fx:reference source="greenGoal2"/>
-                <fx:reference source="greenGoal3"/>
-                <fx:reference source="greenGoal4"/>
-
-
+        <fx:define>
+            <ArrayList fx:id="fields">
                 <!-- Felder -->
 
                 <fx:reference source="btnField1"/>
