@@ -39,7 +39,7 @@ public class SpielManager {
             }
         }
         spielbrett.generiereFelder();
-        int aktuellesFeld = 1;
+        int aktuellesFeld = 0;
         for (Spieler spieler : spiellogik.getSpielerList()) {
             spieler.setStartFeld(spielbrett.getFelder().get(aktuellesFeld));
             aktuellesFeld += 10;
@@ -74,6 +74,7 @@ public class SpielManager {
                 Figur figur = spielerDran.getHaus().getEnthalteneFiguren().get(0);
                 figur.rauskommen();
                 spielerDran.getHaus().getEnthalteneFiguren().remove(figur);
+                System.out.println("Figur ist nun auf Feld: " + figur.getFeld().getFeldnummer());
             }
         } else {
             Figur figur = spielerDran.getFiguren().get(indexFigur);

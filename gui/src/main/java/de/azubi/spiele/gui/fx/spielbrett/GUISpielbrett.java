@@ -14,8 +14,17 @@ import java.util.List;
 
 public class GUISpielbrett {
 
+    public Button btnField1;
+    public Button btnField11;
+    public Button btnField21;
+    public Button btnField31;
+    public Button redBase1;
+
     @FXML
     private List<Button> fields;
+
+    @FXML
+    private List<Button> houses;
 
     public Button btnPlay;
     private SpielManager spielManager = SpielManager.getInstance();
@@ -37,14 +46,22 @@ public class GUISpielbrett {
             spielManager.setZahlGewuerfelt(gewuerfelt);
             zahlGewuerfelt = gewuerfelt;
             anzahlWuerfe++;
-            if (spielerDran.isDarfDreimalWuerfeln() && anzahlWuerfe < 3) {
+            if (gewuerfelt == 6) {
+                if(spielerDran.getHaus().getEnthalteneFiguren().size()>0){
+                    System.out.println(spielerDran.getHaus().getEnthalteneFiguren().get(0).getFeld());
+                    spielManager.figurZiehen(spielerDran, gewuerfelt);
+                    setIcon(redBase1, "blank");
+                    setIcon(btnField1, spielerDran.getFarbe());
+                }
                 spielerDran.setDarfNochWuerfeln(true);
-            } else if (gewuerfelt == 6) {
+            }
+            else if (spielerDran.isDarfDreimalWuerfeln() && anzahlWuerfe < 3) {
                 spielerDran.setDarfNochWuerfeln(true);
-            } else {
+            }
+            else {
                 spielerDran.setDarfNochWuerfeln(false);
                 hatgewuerfelt = true;
-                if (anzahlWuerfe == 3 && gewuerfelt != 6) {
+                if (anzahlWuerfe == 3) {
                     gezogen = true;
                 }
             }
@@ -59,9 +76,9 @@ public class GUISpielbrett {
         btnPlay.setVisible(false);
         lblWuerfeln.setText("Starter: " + spielManager.getStarter().getName());
         lblWuerfeln.setVisible(true);
-        lblText.setText("Das Spiel beginnt! Starter zieht zuerst!");
-        lblText.setVisible(true);
         spielerDran = spielManager.getStarter();
+        lblText.setText("Das Spiel beginnt! Starter zieht zuerst! Farbe: " + spielerDran.getFarbe());
+        lblText.setVisible(true);
     }
 
 
@@ -69,7 +86,7 @@ public class GUISpielbrett {
         if (hatgewuerfelt && gezogen) {
             spielerDran = spielManager.spielerAendern(spielerDran);
             lblWuerfeln.setText("");
-            lblText.setText("Spieler dran: " + spielerDran.getName());
+            lblText.setText("Spieler dran: " + spielerDran.getName() + " Farbe: " + spielerDran.getFarbe());
             zahlGewuerfelt = 0;
             spielerDran.setDarfNochWuerfeln(true);
             anzahlWuerfe = 0;
@@ -81,34 +98,36 @@ public class GUISpielbrett {
     @FXML
     public void getButtonPressedNumber(ActionEvent event) {
         Button btn = (Button) event.getSource();
+        System.out.println(fields.indexOf(btn));
         String fieldName = btn.getId();
 
         int feld = getFieldNumber(fieldName);
-        setIcon(btn, "blank");
-        checkIfFigureOnField(feld);
 
-        if (fieldName.contains("Base") && fieldName.contains(spielerDran.getFarbe()) && spielManager.getZahlGewuerfelt() == 6) {
-            spielManager.figurZiehen(spielerDran, spielManager.getZahlGewuerfelt());
-            switch (spielerDran.getFarbe()){
-                case "red":
-                    setIcon(fields.get(fields.indexOf("btnField1")),"red");
-                    break;
-                case "blue":
-                    setIcon(fields.get(fields.indexOf("btnField11")),"blue");
-                    break;
-                case "green":
-                    setIcon(fields.get(fields.indexOf("btnField21")),"green");
-                    break;
-                case "yellow":
-                    setIcon(fields.get(fields.indexOf("btnField31")),"yellow");
-                    break;
+        if (checkIfFigureOnField(feld)) {
+            setIcon(btn, "blank");
+
+            /*if (fieldName.contains(spielerDran.getFarbe() + "Base") && zahlGewuerfelt == 6) {
+                switch (spielerDran.getFarbe()) {
+                    case "red":
+                        setIcon(btnField1, "red");
+                        break;
+                    case "blue":
+                        setIcon(btnField11, "blue");
+                        break;
+                    case "green":
+                        setIcon(btnField21, "green");
+                        break;
+                    case "yellow":
+                        setIcon(btnField31, "yellow");
+                        break;
+                }
+            }*/ if (fieldName.contains("Goal") && fieldName.contains(spielerDran.getFarbe())) {
+                spielManager.figurZiehen(spielerDran, zahlGewuerfelt);
+
+            } else {
+                spielManager.figurZiehen(spielerDran, zahlGewuerfelt);
+                setIconOnNormalFields(feld);
             }
-        } else if (fieldName.contains("Goal") && fieldName.contains(spielerDran.getFarbe())) {
-            spielManager.figurZiehen(spielerDran, spielManager.getZahlGewuerfelt());
-
-        } else {
-            spielManager.figurZiehen(spielerDran, spielManager.getZahlGewuerfelt());
-            setIconOnNormalFields(feld);
         }
     }
 
@@ -117,15 +136,17 @@ public class GUISpielbrett {
         return fieldNumber;
     }
 
-    public void checkIfFigureOnField(int feld) {
+    public boolean checkIfFigureOnField(int feld) {
         for (Figur figur : spielerDran.getFiguren()) {
-            if (figur.getFeld().equals(feld)) {
+            if (figur.getFeld().getFeldnummer() == (feld)) {
                 int indexFigur = spielerDran.getFiguren().indexOf(figur);
                 spielManager.setIndexFigur(indexFigur);
                 spielManager.figurZiehen(spielerDran, zahlGewuerfelt);
                 gezogen = true;
+                return true;
             }
         }
+        return false;
     }
 
 
@@ -143,10 +164,8 @@ public class GUISpielbrett {
     }
 
     public void setBaseIcons() {
-        for (Button field : fields) {
-            if (field.getId().contains("Base")) {
-                setIcon(field, "black");
-            }
+        for (Button field : houses) {
+            setIcon(field, "black");
         }
     }
 
