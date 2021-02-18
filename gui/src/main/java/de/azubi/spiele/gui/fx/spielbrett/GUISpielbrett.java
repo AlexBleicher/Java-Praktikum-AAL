@@ -26,30 +26,30 @@ public class GUISpielbrett {
     public int zahlGewuerfelt;
     public boolean hatgewuerfelt;
     public boolean gezogen;
-    public int anzahlWuerfe=0;
+    public int anzahlWuerfe = 0;
 
-    public Spieler spielerDran = spielManager.getStarter();
+    public Spieler spielerDran;
 
     public void wuerfeln(ActionEvent actionEvent) {
-        if(spielerDran.isDarfNochWuerfeln()) {
+        if (spielerDran.isDarfNochWuerfeln()) {
             int gewuerfelt = (int) (Math.random() * 6) + 1;
             lblWuerfeln.setText("Du hast eine " + gewuerfelt + " gewürfelt!");
             lblWuerfeln.setVisible(true);
             spielManager.setZahlGewuerfelt(gewuerfelt);
-            zahlGewuerfelt=gewuerfelt;
+            zahlGewuerfelt = gewuerfelt;
             anzahlWuerfe++;
-            if(spielerDran.isDarfDreimalWuerfeln()&&anzahlWuerfe<3){
+            if (spielerDran.isDarfDreimalWuerfeln() && anzahlWuerfe < 3) {
                 spielerDran.setDarfNochWuerfeln(true);
-            }
-            else if(gewuerfelt==6){
+            } else if (gewuerfelt == 6) {
                 spielerDran.setDarfNochWuerfeln(true);
-            }
-            else{
+            } else {
                 spielerDran.setDarfNochWuerfeln(false);
-                hatgewuerfelt=true;
+                hatgewuerfelt = true;
+                if (anzahlWuerfe == 3 && gewuerfelt != 6) {
+                    gezogen = true;
+                }
             }
-        }
-        else{
+        } else {
             lblWuerfeln.setText("Du darfst nicht mehr wuerfeln!");
             lblWuerfeln.setVisible(true);
         }
@@ -62,6 +62,7 @@ public class GUISpielbrett {
         lblWuerfeln.setVisible(true);
         lblText.setText("Das Spiel beginnt! Starter zieht zuerst!");
         lblText.setVisible(true);
+        spielerDran = spielManager.getStarter();
     }
 
 
@@ -70,38 +71,42 @@ public class GUISpielbrett {
             spielerDran = spielManager.spielerAendern(spielerDran);
             lblWuerfeln.setText("");
             lblText.setText("Spieler dran: " + spielerDran.getName());
+            zahlGewuerfelt = 0;
+            spielerDran.setDarfNochWuerfeln(true);
+            anzahlWuerfe = 0;
         } else {
             lblText.setText("Noch nicht alle Funktionen ausgeführt!");
         }
     }
 
     @FXML
-    public void getButtonPressedNumber(ActionEvent event){
+    public void getButtonPressedNumber(ActionEvent event) {
         Button btn = (Button) event.getSource();
         String fieldName = btn.getId();
         int feld = getFieldNumber(fieldName);
         checkIfFigureOnField(feld);
     }
 
-    public int getFieldNumber(String fieldName){
-        int fieldNumber = Integer.parseInt(fieldName.replaceAll("\\D+",""));
+    public int getFieldNumber(String fieldName) {
+        int fieldNumber = Integer.parseInt(fieldName.replaceAll("\\D+", ""));
         return fieldNumber;
     }
 
-    public void checkIfFigureOnField(int feld){
+    public void checkIfFigureOnField(int feld) {
         for (Figur figur : spielerDran.getFiguren()) {
-            if(figur.getFeld().equals(feld)){
+            if (figur.getFeld().equals(feld)) {
                 int indexFigur = spielerDran.getFiguren().indexOf(figur);
                 spielManager.setIndexFigur(indexFigur);
+                spielManager.figurZiehen(spielerDran, zahlGewuerfelt);
                 gezogen = true;
                 int nextFeld = feld + spielManager.getZahlGewuerfelt();
                 String buttonNow = "btnField" + feld;
                 String buttonNext = "btnField" + nextFeld;
                 for (Button field : fields) {
-                    if(field.getId().equals(buttonNext)){
+                    if (field.getId().equals(buttonNext)) {
                         setIcon(field, spielerDran.getFarbe());
                     }
-                    if(field.getId().equals(buttonNow)){
+                    if (field.getId().equals(buttonNow)) {
                         field.setGraphic(null);
                     }
                 }
@@ -109,9 +114,9 @@ public class GUISpielbrett {
         }
     }
 
-    public void setBaseIcons(){
+    public void setBaseIcons() {
         for (Button field : fields) {
-            if(field.getId().contains("Base")){
+            if (field.getId().contains("Base")) {
                 setIcon(field, "black");
             }
         }

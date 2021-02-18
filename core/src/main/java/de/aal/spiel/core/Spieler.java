@@ -13,7 +13,7 @@ public class Spieler {
     private Feld startFeld = new Feld(0); //Platzhalter
     public List<Feld> ziel = new ArrayList<>();
     public String farbe;
-    private boolean darfNochWuerfeln;
+    public boolean darfNochWuerfeln = true;
 
     public Spieler(String name) {
         this.name = name;
