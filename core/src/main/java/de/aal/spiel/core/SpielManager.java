@@ -133,7 +133,7 @@ public class SpielManager {
                 figur.setGezogeneFelder(figur.getGezogeneFelder() + zahlGewuerfelt);
             } else if (kommtInsZiel(figur)) {
                 figur.getSpieler().setFigurenImZiel(figur.getSpieler().getFigurenImZiel() + 1);
-                figur.setFeld(figur.getSpieler().getZiel().get(figur.getGezogeneFelder() + zahlGewuerfelt));
+                figur.setFeld(figur.getSpieler().getZiel().get(figur.getGezogeneFelder() + zahlGewuerfelt-spielbrett.getFelder().size()));
                 if (figur.getSpieler().getFigurenImZiel() == figur.getSpieler().getFiguren().size()) {
                     setBeendet(true);
                 }
