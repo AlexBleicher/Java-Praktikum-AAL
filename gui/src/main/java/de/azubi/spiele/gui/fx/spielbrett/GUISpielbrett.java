@@ -46,6 +46,7 @@ public class GUISpielbrett {
     public Spieler spielerDran;
 
     public void wuerfeln(ActionEvent actionEvent) {
+        System.out.println(spielerDran.isDarfDreimalWuerfeln());
         if (spielerDran.isDarfNochWuerfeln()) {
             int gewuerfelt = (int) (Math.random() * 6) + 1;
             lblWuerfeln.setText("Du hast eine " + gewuerfelt + " gewürfelt!");
@@ -62,6 +63,7 @@ public class GUISpielbrett {
                     setIcon(removeFigureFromHouse(), "blank");
                     setIcon(getSpielerStart(), spielerDran.getFarbe());
                     ausHaus = true;
+                    spielerDran.setDarfDreimalWuerfeln(false);
                     lastNumber = 6;
                 }
                 spielerDran.setDarfNochWuerfeln(true);
@@ -84,7 +86,6 @@ public class GUISpielbrett {
             spielerDran.setDarfNochWuerfeln(false);
             hatgewuerfelt = true;
         }
-        spielerDran.checkdarfDreimalWuerfeln();
     }
 
     public void spielenStarten(ActionEvent actionEvent) {
