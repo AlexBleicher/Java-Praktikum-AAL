@@ -52,7 +52,7 @@
 
                 <!-- ChoiceBox Figur auswaehlen -->
 
-                <HBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="580.0" spacing="10.0">
+                <HBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="580.0" spacing="10.0" fx:id="hBoxNamen">
                     <children>
                         <Button fx:id="btnZugBeenden" mnemonicParsing="false" onAction="#zugBeenden"
                                 text="Zug Beenden"/>
@@ -851,6 +851,7 @@
         </VBox>
         <fx:define>
             <ArrayList fx:id="houses">
+                <!-- StartHaeuser -->
                 <fx:reference source="redBase1"/>
                 <fx:reference source="redBase2"/>
                 <fx:reference source="redBase3"/>
@@ -870,11 +871,9 @@
             </ArrayList>
         </fx:define>
 
-
         <fx:define>
             <ArrayList fx:id="fields">
                 <!-- Felder -->
-
                 <fx:reference source="btnField1"/>
                 <fx:reference source="btnField2"/>
                 <fx:reference source="btnField3"/>
@@ -917,6 +916,29 @@
                 <fx:reference source="btnField40"/>
             </ArrayList>
         </fx:define>
+
+        <fx:define>
+            <ArrayList fx:id="goals">
+                <!-- Ziele -->
+                <fx:reference source="redGoal1"/>
+                <fx:reference source="redGoal2"/>
+                <fx:reference source="redGoal3"/>
+                <fx:reference source="redGoal4"/>
+                <fx:reference source="blueGoal1"/>
+                <fx:reference source="blueGoal2"/>
+                <fx:reference source="blueGoal3"/>
+                <fx:reference source="blueGoal4"/>
+                <fx:reference source="greenGoal1"/>
+                <fx:reference source="greenGoal2"/>
+                <fx:reference source="greenGoal3"/>
+                <fx:reference source="greenGoal4"/>
+                <fx:reference source="yellowGoal1"/>
+                <fx:reference source="yellowGoal2"/>
+                <fx:reference source="yellowGoal3"/>
+                <fx:reference source="yellowGoal4"/>
+            </ArrayList>
+        </fx:define>
+
     </children>
 </AnchorPane>
 
