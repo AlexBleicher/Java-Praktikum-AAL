@@ -83,9 +83,7 @@ public class Spieler {
         this.darfNochWuerfeln = darfNochWuerfeln;
     }
 
-    public void checkdarfDreimalWuerfeln() {
-        if (haus.getEnthalteneFiguren().size() < (4 - figurenImZiel)) {
-            darfDreimalWuerfeln = false;
-        }
+    public void setDarfDreimalWuerfeln(boolean darfDreimalWuerfeln) {
+        this.darfDreimalWuerfeln = darfDreimalWuerfeln;
     }
 }
