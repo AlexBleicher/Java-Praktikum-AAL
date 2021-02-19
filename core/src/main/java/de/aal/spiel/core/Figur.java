@@ -37,7 +37,7 @@ public class Figur {
 
     public void geschlagen() {
         gezogeneFelder = 0;
-        feld = null;
+        feld = new Feld(-1);
         spieler.getHaus().addFigur(this);
     }
 }
