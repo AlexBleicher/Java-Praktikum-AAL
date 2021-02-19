@@ -187,7 +187,7 @@ public class SpielManager {
     }
 
     public boolean kommtueberRotenStart(int feldNummer) {
-        return (feldNummer >= spielbrett.getFelder().size());
+        return (feldNummer > spielbrett.getFelder().size());
     }
 
     public boolean wirdGeschlagen(Figur andereFigur, Figur figur, Feld neuesFeld) {

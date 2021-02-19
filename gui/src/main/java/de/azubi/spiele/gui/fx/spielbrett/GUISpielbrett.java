@@ -116,6 +116,9 @@ public class GUISpielbrett {
         } else {
             lblText.setText("Noch nicht alle Funktionen ausgeführt!");
         }
+        for(Spieler spieler: spielManager.getSpiellogik().getSpielerList()) {
+            refillHouse(spieler);
+        }
     }
 
     public void generateLegend() {
