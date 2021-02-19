@@ -136,7 +136,9 @@ public class GUISpielbrett {
             spielManager.figurZiehen(spielerDran, zahlGewuerfelt);
             setIcon(btn, "blank");
             setAndCheckIfInGoal();
-            refillHouse();
+            if (spielManager.isFigurGeschlagen()) {
+                refillHouse(spielManager.getAndereFigur().getSpieler());
+            }
             if (fieldName.contains(spielerDran.getFarbe() + "Goal")) {
                 spielerDran.setDarfNochWuerfeln(false);
                 gezogen = true;
@@ -188,25 +190,24 @@ public class GUISpielbrett {
         return false;
     }
 
-    public void refillHouse() {
-        List<Spieler> allPlayers = spielManager.getSpiellogik().getSpielerList();
-        for (Spieler spieler : allPlayers) {
-            int figurenImHaus = spieler.getHaus().getEnthalteneFiguren().size();
-            for (int i = 0; i < figurenImHaus; i++) {
-                String playerHouse = spieler.getFarbe() + "Base" + i;
-                for (Button house : houses) {
-                    if (house.getId().equals(playerHouse)) ;
-                    setIcon(house, spielerDran.getFarbe());
-                }
+    public void refillHouse(Spieler spielerGeschlagen) {
+        int figurenImHaus = spielerGeschlagen.getHaus().getEnthalteneFiguren().size();
+        System.out.println("Figuren Im Haus: " + figurenImHaus);
+        String playerHouse = spielerGeschlagen.getFarbe() + "Base" + figurenImHaus;
+        for (Button house : houses) {
+            if (house.getId().equals(playerHouse)) {
+                setIcon(house, "black");
             }
         }
+        spielManager.setFigurGeschlagen(false);
+        spielManager.setAndereFigur(null);
     }
 
     public void setAndCheckIfInGoal() {
-        for (Feld feld : spielerDran.getZiel()) {
+        for (Feld ziel : spielerDran.getZiel()) {
             for (Figur figur : spielerDran.getFiguren()) {
-                if (figur.getFeld().getFeldnummer() == feld.getFeldnummer()) {
-                    String btnGoal = spielerDran.getFarbe() + "Goal" + (feld.getFeldnummer() - 41);
+                if (figur.getFeld().getFeldnummer() == ziel.getFeldnummer()) {
+                    String btnGoal = spielerDran.getFarbe() + "Goal" + (figur.getGezogeneFelder() - 40);
                     for (Button goal : goals) {
                         if (goal.getId().equals(btnGoal)) {
                             setIcon(goal, "black");

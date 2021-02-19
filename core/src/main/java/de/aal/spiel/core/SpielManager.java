@@ -15,6 +15,9 @@ public class SpielManager {
     private Spieler starter;
     private int zahlGewuerfelt;
     private int indexFigur;
+    private boolean figurGeschlagen = false;
+
+    private Figur andereFigur;
 
 
     public SpielManager() {
@@ -70,15 +73,38 @@ public class SpielManager {
         this.beendet = beendet;
     }
 
+    public boolean isFigurGeschlagen() {
+        return figurGeschlagen;
+    }
+
+    public void setFigurGeschlagen(boolean figurGeschlagen) {
+        this.figurGeschlagen = figurGeschlagen;
+    }
+
+    public Figur getAndereFigur() {
+        return andereFigur;
+    }
+
+    public void setAndereFigur(Figur andereFigur) {
+        this.andereFigur = andereFigur;
+    }
+
     public void figurZiehen(Spieler spielerDran, int zahlGewuerfelt) {
         if (kannRausziehen(spielerDran)) {
             if (hatnochFigurenImHaus(spielerDran)) {
                 Figur figur = spielerDran.getHaus().getEnthalteneFiguren().get(0);
                 figur.rauskommen();
                 spielerDran.getHaus().getEnthalteneFiguren().remove(figur);
+                for (Figur andereFigurAusListe : figurenListe) {
+                    andereFigur = andereFigurAusListe;
+                    if (wirdGeschlagen(andereFigurAusListe, figur, spielerDran.getStartFeld())) {
+                        andereFigurAusListe.geschlagen();
+                        figurGeschlagen = true;
+                        break;
+                    }
+                }
             }
-        }
-        else {
+        } else {
             Figur figur = spielerDran.getFiguren().get(indexFigur);
 
             if (istNochKeineRundeGelaufen(figur)) {
@@ -88,23 +114,29 @@ public class SpielManager {
                 int feldNummer = neuesFeld.getFeldnummer() + zahlGewuerfelt;
 
                 if (kommtueberRotenStart(feldNummer)) {
-                    feldNummer -= spielbrett.getFelder().size();
+                    feldNummer = feldNummer % spielbrett.getFelder().size();
                 }
-                neuesFeld = spielbrett.getFelder().get(feldNummer - 1);
+                if(feldNummer==0){
+                    neuesFeld = spielbrett.getFelder().get(39);
+                }
+                else{
+                    neuesFeld = spielbrett.getFelder().get(feldNummer -1);
+                    }
 
                 figur.setFeld(neuesFeld);
 
-                for (Figur andereFigur : figurenListe) {
-                    if (wirdGeschlagen(andereFigur, figur, neuesFeld)) {
-                        andereFigur.geschlagen();
+                for (Figur andereFigurAusListe : figurenListe) {
+                    andereFigur = andereFigurAusListe;
+                    if (wirdGeschlagen(andereFigurAusListe, figur, neuesFeld)) {
+                        andereFigurAusListe.geschlagen();
+                        figurGeschlagen = true;
                         break;
                     }
                 }
                 figur.setGezogeneFelder(figur.getGezogeneFelder() + zahlGewuerfelt);
-            }
-            else if (kommtInsZiel(figur)) {
+            } else if (kommtInsZiel(figur)) {
                 figur.getSpieler().setFigurenImZiel(figur.getSpieler().getFigurenImZiel() + 1);
-                figur.setFeld(figur.getSpieler().getZiel().get(figur.getGezogeneFelder() + zahlGewuerfelt - 41));
+                figur.setFeld(figur.getSpieler().getZiel().get(figur.getGezogeneFelder() + zahlGewuerfelt));
                 if (figur.getSpieler().getFigurenImZiel() == figur.getSpieler().getFiguren().size()) {
                     setBeendet(true);
                 }
@@ -112,9 +144,9 @@ public class SpielManager {
         }
     }
 
-    public boolean eigeneFigurBereitsAufFeld(Spieler spielerDran){
+    public boolean eigeneFigurBereitsAufFeld(Spieler spielerDran) {
         for (Figur figur : spielerDran.getFiguren()) {
-            if(figur.getFeld().equals(spielerDran.getStartFeld())){
+            if (figur.getFeld().equals(spielerDran.getStartFeld())) {
                 return true;
             }
         }
@@ -145,27 +177,27 @@ public class SpielManager {
         return instance;
     }
 
-    public boolean kannRausziehen(Spieler spielerDran){
+    public boolean kannRausziehen(Spieler spielerDran) {
         return (zahlGewuerfelt == 6 && !eigeneFigurBereitsAufFeld(spielerDran));
     }
 
-    public boolean hatnochFigurenImHaus(Spieler spielerDran){
+    public boolean hatnochFigurenImHaus(Spieler spielerDran) {
         return (spielerDran.getHaus().getEnthalteneFiguren().size() != 0);
     }
 
-    public boolean istNochKeineRundeGelaufen(Figur figur){
+    public boolean istNochKeineRundeGelaufen(Figur figur) {
         return (figur.getGezogeneFelder() + zahlGewuerfelt < spielbrett.getFelder().size());
     }
 
-    public boolean kommtueberRotenStart(int feldNummer){
+    public boolean kommtueberRotenStart(int feldNummer) {
         return (feldNummer >= spielbrett.getFelder().size());
     }
 
-    public boolean wirdGeschlagen(Figur andereFigur, Figur figur, Feld neuesFeld){
+    public boolean wirdGeschlagen(Figur andereFigur, Figur figur, Feld neuesFeld) {
         return (andereFigur.getFeld().equals(neuesFeld) && andereFigur != figur);
     }
 
-    public boolean kommtInsZiel(Figur figur){
+    public boolean kommtInsZiel(Figur figur) {
         return (spielbrett.getFelder().size() < figur.getGezogeneFelder() + zahlGewuerfelt && figur.getGezogeneFelder() + zahlGewuerfelt <= spielbrett.getFelder().size() + figur.getSpieler().getFiguren().size());
     }
 }

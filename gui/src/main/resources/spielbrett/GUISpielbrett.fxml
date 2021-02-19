@@ -662,7 +662,7 @@
                                                    preserveRatio="true"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="btnField27" mnemonicParsing="false"
+                                <Button fx:id="btnField27" mnemonicParsing="false" onAction="#getButtonPressedNumber"
                                         style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
                                     <graphic>
                                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
