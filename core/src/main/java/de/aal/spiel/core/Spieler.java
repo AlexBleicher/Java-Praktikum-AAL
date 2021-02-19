@@ -10,7 +10,7 @@ public class Spieler {
     private boolean darfDreimalWuerfeln = true;
     private List<Figur> figuren = new ArrayList<>();
     private Haus haus;
-    private Feld startFeld = new Feld(0); //Platzhalter
+    private Feld startFeld = new Feld(0);
     public List<Feld> ziel = new ArrayList<>();
     public String farbe;
     public boolean darfNochWuerfeln = true;

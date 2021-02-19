@@ -1,5 +1,6 @@
 package de.azubi.spiele.gui.fx.spielbrett;
 
+import de.aal.spiel.core.Feld;
 import de.aal.spiel.core.Figur;
 import de.aal.spiel.core.SpielManager;
 import de.aal.spiel.core.Spieler;
@@ -31,6 +32,9 @@ public class GUISpielbrett {
     @FXML
     private List<Button> houses;
 
+    @FXML
+    private List<Button> goals;
+
     public Button btnPlay;
     private SpielManager spielManager = SpielManager.getInstance();
     public Label lblWuerfeln;
@@ -46,45 +50,46 @@ public class GUISpielbrett {
     public Spieler spielerDran;
 
     public void wuerfeln(ActionEvent actionEvent) {
-        System.out.println(spielerDran.isDarfDreimalWuerfeln());
-        if (spielerDran.isDarfNochWuerfeln()) {
-            int gewuerfelt = (int) (Math.random() * 6) + 1;
-            lblWuerfeln.setText("Du hast eine " + gewuerfelt + " gewürfelt!");
-            lblWuerfeln.setVisible(true);
-            spielManager.setZahlGewuerfelt(gewuerfelt);
-            zahlGewuerfelt = gewuerfelt;
-            anzahlWuerfe++;
+        if (!spielManager.isBeendet()) {
+            System.out.println(spielerDran.isDarfDreimalWuerfeln());
+            if (spielerDran.isDarfNochWuerfeln()) {
+                int gewuerfelt = (int) (Math.random() * 6) + 1;
+                lblWuerfeln.setText("Du hast eine " + gewuerfelt + " gewürfelt!");
+                lblWuerfeln.setVisible(true);
+                spielManager.setZahlGewuerfelt(gewuerfelt);
+                zahlGewuerfelt = gewuerfelt;
+                anzahlWuerfe++;
 
-            System.out.println(anzahlWuerfe);
+                System.out.println(anzahlWuerfe);
 
-            if (gewuerfelt == 6 && !spielManager.eigeneFigurBereitsAufFeld(spielerDran)) {
-                if (spielerDran.getHaus().getEnthalteneFiguren().size() > 0) {
-                    spielManager.figurZiehen(spielerDran, gewuerfelt);
-                    setIcon(removeFigureFromHouse(), "blank");
-                    setIcon(getSpielerStart(), spielerDran.getFarbe());
-                    ausHaus = true;
-                    spielerDran.setDarfDreimalWuerfeln(false);
-                    lastNumber = 6;
+                if (gewuerfelt == 6 && !spielManager.eigeneFigurBereitsAufFeld(spielerDran)) {
+                    if (spielerDran.getHaus().getEnthalteneFiguren().size() > 0) {
+                        spielManager.figurZiehen(spielerDran, gewuerfelt);
+                        setIcon(removeFigureFromHouse(), "blank");
+                        setIcon(getSpielerStart(), spielerDran.getFarbe());
+                        ausHaus = true;
+                        spielerDran.setDarfDreimalWuerfeln(false);
+                        lastNumber = 6;
+                    }
+                    spielerDran.setDarfNochWuerfeln(true);
+                } else if ((spielerDran.isDarfDreimalWuerfeln() && anzahlWuerfe < 3) || lastNumber == 6) {
+                    spielerDran.setDarfNochWuerfeln(true);
+                    ausHaus = false;
+                    lastNumber = gewuerfelt;
+                } else {
+                    hatgewuerfelt = true;
+                    ausHaus = false;
+                    if (anzahlWuerfe >= 3) {
+                        gezogen = true;
+                        spielerDran.setDarfNochWuerfeln(false);
+                    }
                 }
-                spielerDran.setDarfNochWuerfeln(true);
-            }
-            else if ((spielerDran.isDarfDreimalWuerfeln() && anzahlWuerfe < 3) || lastNumber == 6) {
-                spielerDran.setDarfNochWuerfeln(true);
-                ausHaus = false;
-                lastNumber = gewuerfelt;
             } else {
+                lblWuerfeln.setText("Du darfst nicht mehr wuerfeln!");
+                lblWuerfeln.setVisible(true);
+                spielerDran.setDarfNochWuerfeln(false);
                 hatgewuerfelt = true;
-                ausHaus = false;
-                if (anzahlWuerfe >= 3) {
-                    gezogen = true;
-                    spielerDran.setDarfNochWuerfeln(false);
-                }
             }
-        } else {
-            lblWuerfeln.setText("Du darfst nicht mehr wuerfeln!");
-            lblWuerfeln.setVisible(true);
-            spielerDran.setDarfNochWuerfeln(false);
-            hatgewuerfelt = true;
         }
     }
 
@@ -113,7 +118,7 @@ public class GUISpielbrett {
         }
     }
 
-    public void generateLegend(){
+    public void generateLegend() {
         for (Spieler spieler : spielManager.getSpiellogik().getSpielerList()) {
             Color color = Color.web(spieler.getFarbe());
             Label name = new Label(spieler.getName());
@@ -130,6 +135,8 @@ public class GUISpielbrett {
         if (checkIfFigureOnField(feld) && !gezogen && !ausHaus) {
             spielManager.figurZiehen(spielerDran, zahlGewuerfelt);
             setIcon(btn, "blank");
+            setAndCheckIfInGoal();
+            refillHouse();
             if (fieldName.contains(spielerDran.getFarbe() + "Goal")) {
                 spielerDran.setDarfNochWuerfeln(false);
                 gezogen = true;
@@ -154,6 +161,11 @@ public class GUISpielbrett {
         return null;
     }
 
+    public int getFieldNumber(String fieldName) {
+        int fieldNumber = Integer.parseInt(fieldName.replaceAll("\\D+", ""));
+        return fieldNumber;
+    }
+
     private Button removeFigureFromHouse() {
         List<Figur> enthalteneFiguren = spielerDran.getHaus().getEnthalteneFiguren();
         List<Button> figurenImHaus = new ArrayList<>();
@@ -165,11 +177,6 @@ public class GUISpielbrett {
         return figurenImHaus.get(enthalteneFiguren.size());
     }
 
-    public int getFieldNumber(String fieldName) {
-        int fieldNumber = Integer.parseInt(fieldName.replaceAll("\\D+", ""));
-        return fieldNumber;
-    }
-
     public boolean checkIfFigureOnField(int feld) {
         for (Figur figur : spielerDran.getFiguren()) {
             if (figur.getFeld().getFeldnummer() == (feld)) {
@@ -179,6 +186,35 @@ public class GUISpielbrett {
             }
         }
         return false;
+    }
+
+    public void refillHouse() {
+        List<Spieler> allPlayers = spielManager.getSpiellogik().getSpielerList();
+        for (Spieler spieler : allPlayers) {
+            int figurenImHaus = spieler.getHaus().getEnthalteneFiguren().size();
+            for (int i = 0; i < figurenImHaus; i++) {
+                String playerHouse = spieler.getFarbe() + "Base" + i;
+                for (Button house : houses) {
+                    if (house.getId().equals(playerHouse)) ;
+                    setIcon(house, spielerDran.getFarbe());
+                }
+            }
+        }
+    }
+
+    public void setAndCheckIfInGoal() {
+        for (Feld feld : spielerDran.getZiel()) {
+            for (Figur figur : spielerDran.getFiguren()) {
+                if (figur.getFeld().getFeldnummer() == feld.getFeldnummer()) {
+                    String btnGoal = spielerDran.getFarbe() + "Goal" + (feld.getFeldnummer() - 41);
+                    for (Button goal : goals) {
+                        if (goal.getId().equals(btnGoal)) {
+                            setIcon(goal, "black");
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private void setIconOnNormalFields(int feld) {
