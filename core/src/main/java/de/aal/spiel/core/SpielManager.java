@@ -69,22 +69,23 @@ public class SpielManager {
     }
 
     public void figurZiehen(Spieler spielerDran, int zahlGewuerfelt) {
-        if (zahlGewuerfelt == 6 && !eigeneFigurBereitsAufFeld(spielerDran)) {
-            if (spielerDran.getHaus().getEnthalteneFiguren().size() != 0) {
+        if (kannRausziehen(spielerDran)) {
+            if (hatnochFigurenImHaus(spielerDran)) {
                 Figur figur = spielerDran.getHaus().getEnthalteneFiguren().get(0);
                 figur.rauskommen();
                 spielerDran.getHaus().getEnthalteneFiguren().remove(figur);
             }
-        } else {
+        }
+        else {
             Figur figur = spielerDran.getFiguren().get(indexFigur);
 
-            if (figur.getGezogeneFelder() + zahlGewuerfelt < spielbrett.getFelder().size()) {
+            if (istNochKeineRundeGelaufen(figur)) {
 
                 Feld neuesFeld = figur.getFeld();
 
                 int feldNummer = neuesFeld.getFeldnummer() + zahlGewuerfelt;
 
-                if (feldNummer >= spielbrett.getFelder().size()) {
+                if (kommtueberRotenStart(feldNummer)) {
                     feldNummer -= spielbrett.getFelder().size();
                 }
                 neuesFeld = spielbrett.getFelder().get(feldNummer - 1);
@@ -92,17 +93,17 @@ public class SpielManager {
                 figur.setFeld(neuesFeld);
 
                 for (Figur andereFigur : figurenListe) {
-                    if (andereFigur.getFeld().equals(neuesFeld) && andereFigur != figur) {
+                    if (wirdGeschlagen(andereFigur, figur, neuesFeld)) {
                         andereFigur.geschlagen();
                         break;
                     }
                 }
                 figur.setGezogeneFelder(figur.getGezogeneFelder() + zahlGewuerfelt);
             }
-            else if (spielbrett.getFelder().size() < figur.getGezogeneFelder() + zahlGewuerfelt && figur.getGezogeneFelder() + zahlGewuerfelt <= spielbrett.getFelder().size() + 4) {
+            else if (kommtInsZiel(figur)) {
                 figur.getSpieler().setFigurenImZiel(figur.getSpieler().getFigurenImZiel() + 1);
                 figur.setFeld(figur.getSpieler().getZiel().get(figur.getGezogeneFelder() + zahlGewuerfelt - 41));
-                if (figur.getSpieler().getFigurenImZiel() == 4) {
+                if (figur.getSpieler().getFigurenImZiel() == figur.getSpieler().getFiguren().size()) {
                     setBeendet(true);
                 }
             }
@@ -148,6 +149,30 @@ public class SpielManager {
 
     public static SpielManager getInstance() {
         return instance;
+    }
+
+    public boolean kannRausziehen(Spieler spielerDran){
+        return (zahlGewuerfelt == 6 && !eigeneFigurBereitsAufFeld(spielerDran));
+    }
+
+    public boolean hatnochFigurenImHaus(Spieler spielerDran){
+        return (spielerDran.getHaus().getEnthalteneFiguren().size() != 0);
+    }
+
+    public boolean istNochKeineRundeGelaufen(Figur figur){
+        return (figur.getGezogeneFelder() + zahlGewuerfelt < spielbrett.getFelder().size());
+    }
+
+    public boolean kommtueberRotenStart(int feldNummer){
+        return (feldNummer >= spielbrett.getFelder().size());
+    }
+
+    public boolean wirdGeschlagen(Figur andereFigur, Figur figur, Feld neuesFeld){
+        return (andereFigur.getFeld().equals(neuesFeld) && andereFigur != figur);
+    }
+
+    public boolean kommtInsZiel(Figur figur){
+        return (spielbrett.getFelder().size() < figur.getGezogeneFelder() + zahlGewuerfelt && figur.getGezogeneFelder() + zahlGewuerfelt <= spielbrett.getFelder().size() + figur.getSpieler().getFiguren().size());
     }
 }
 
