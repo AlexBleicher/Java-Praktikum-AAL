@@ -117,12 +117,9 @@ public class SpielManager {
                     feldNummer = feldNummer % spielbrett.getFelder().size();
                 }
                 if(feldNummer==0){
-                    neuesFeld = spielbrett.getFelder().get(39);
+                    feldNummer = 1;
                 }
-                else{
-                    neuesFeld = spielbrett.getFelder().get(feldNummer -1);
-                    }
-
+                neuesFeld = spielbrett.getFelder().get(feldNummer - 1);
                 figur.setFeld(neuesFeld);
 
                 for (Figur andereFigurAusListe : figurenListe) {
@@ -190,7 +187,7 @@ public class SpielManager {
     }
 
     public boolean kommtueberRotenStart(int feldNummer) {
-        return (feldNummer >= spielbrett.getFelder().size());
+        return (feldNummer > spielbrett.getFelder().size());
     }
 
     public boolean wirdGeschlagen(Figur andereFigur, Figur figur, Feld neuesFeld) {

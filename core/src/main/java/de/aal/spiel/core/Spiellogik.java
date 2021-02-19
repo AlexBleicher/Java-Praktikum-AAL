@@ -9,7 +9,7 @@ public class Spiellogik {
 
     public void addSpieler(Spieler p) throws Exception {
         try {
-            if (spielerList.size() <= 4) {
+            if (spielerList.size() < 4) {
                 spielerList.add(p);
             } else {
                 throw new Exception();
