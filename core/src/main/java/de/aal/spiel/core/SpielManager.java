@@ -7,7 +7,6 @@ import java.util.List;
 public class SpielManager {
 
     private static final SpielManager instance = new SpielManager();
-    //private LogikStart startLogik;
     private Spiellogik spiellogik = new Spiellogik();
     private Spielbrett spielbrett = new Spielbrett();
     private List<Figur> figurenListe = new ArrayList<>();
@@ -126,16 +125,8 @@ public class SpielManager {
         return spielbrett;
     }
 
-   /* public LogikStart getStartLogik() {
-        return startLogik;
-    }*/
-
     public Spiellogik getSpiellogik() {
         return spiellogik;
-    }
-
-    public int getZahlGewuerfelt() {
-        return zahlGewuerfelt;
     }
 
     public void setZahlGewuerfelt(int zahlGewuerfelt) {
