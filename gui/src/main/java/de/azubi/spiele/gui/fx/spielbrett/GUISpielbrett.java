@@ -192,6 +192,7 @@ public class GUISpielbrett {
 
     public void refillHouse(Spieler spielerGeschlagen) {
         int figurenImHaus = spielerGeschlagen.getHaus().getEnthalteneFiguren().size();
+        System.out.println(spielerGeschlagen.getName());
         System.out.println("Figuren Im Haus: " + figurenImHaus);
         String playerHouse = spielerGeschlagen.getFarbe() + "Base" + figurenImHaus;
         for (Button house : houses) {
@@ -219,7 +220,10 @@ public class GUISpielbrett {
     }
 
     private void setIconOnNormalFields(int feld) {
-        String buttonNext = "btnField" + (feld + zahlGewuerfelt);
+        String buttonNext = "btnField" + ((feld + zahlGewuerfelt) % 40);
+        if (buttonNext.equals("btnField0")){
+            buttonNext = "btnField40";
+        }
         for (Button field : fields) {
             if (field.getId().equals(buttonNext)) {
                 setIcon(field, spielerDran.getFarbe());
