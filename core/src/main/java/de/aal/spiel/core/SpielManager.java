@@ -63,6 +63,9 @@ public class SpielManager {
         return spielerDran;
     }
 
+    public boolean isBeendet() {
+        return beendet;
+    }
 
     public void setBeendet(boolean beendet) {
         this.beendet = beendet;
