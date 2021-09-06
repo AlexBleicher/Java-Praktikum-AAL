@@ -1,0 +1,20 @@
+@startuml
+
+left to right direction
+skinparam actorStyle awesome
+
+:User: as user
+
+package Spiel_vorbereiten {
+    user --> (User erstellen)
+    user --> (Spiel starten)
+}
+
+package Spiel_spielen {
+    user --> (Runde starten)
+    user --> (Würfeln)
+    user --> (Zug beenden)
+    user --> (Figur bewegen)
+}
+
+@enduml

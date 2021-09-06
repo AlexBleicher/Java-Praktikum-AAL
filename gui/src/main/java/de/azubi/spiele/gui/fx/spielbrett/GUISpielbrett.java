@@ -75,7 +75,7 @@ public class GUISpielbrett {
                 } else if ((spielerDran.isDarfDreimalWuerfeln() && anzahlWuerfe < 3) || lastNumber == 6) {
                     spielerDran.setDarfNochWuerfeln(true);
                     ausHaus = false;
-                    lastNumber = gewuerfelt;
+                    lastNumber = zahlGewuerfelt;
                 } else {
                     hatgewuerfelt = true;
                     ausHaus = false;
@@ -167,8 +167,7 @@ public class GUISpielbrett {
     }
 
     public int getFieldNumber(String fieldName) {
-        int fieldNumber = Integer.parseInt(fieldName.replaceAll("\\D+", ""));
-        return fieldNumber;
+        return Integer.parseInt(fieldName.replaceAll("\\D+", ""));
     }
 
     private Button removeFigureFromHouse() {
