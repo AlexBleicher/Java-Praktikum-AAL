@@ -1,0 +1,941 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import java.util.ArrayList?>
+
+<AnchorPane prefHeight="531.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.azubi.spiele.gui.fx.spielbrett.GUISpielbrett">
+    <children>
+        <VBox alignment="CENTER" layoutY="6.0" prefHeight="629.0" prefWidth="600.0">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+            <children>
+                <HBox prefHeight="40.0" prefWidth="580.0">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="47.0" prefWidth="580.0"
+                               style="-fx-background-color: lightgray; -fx-border-color: black;"
+                               text="Mensch Ärgere dich nicht!">
+                            <font>
+                                <Font size="27.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+
+
+                <!-- Wuerfeln -->
+
+                <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="580.0" spacing="10.0">
+                    <children>
+                        <Button fx:id="btnWuerfeln" mnemonicParsing="false" onAction="#wuerfeln" text="Würfeln"/>
+                        <Label fx:id="lblWuerfeln" alignment="CENTER" prefHeight="33.0" text="" visible="false"/>
+                        <Label fx:id="lblText" alignment="CENTER_RIGHT" prefHeight="40.0" text="" visible="false"/>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </padding>
+                </HBox>
+
+
+                <!-- ChoiceBox Figur auswaehlen -->
+
+                <HBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="580.0" spacing="10.0" fx:id="hBoxNamen">
+                    <children>
+                        <Button fx:id="btnZugBeenden" mnemonicParsing="false" onAction="#zugBeenden"
+                                text="Zug Beenden"/>
+                        <Button fx:id="btnPlay" mnemonicParsing="false" text="Spiel starten"
+                                onAction="#spielenStarten"/>
+                    </children>
+                </HBox>
+
+
+                <!-- Buttons -->
+
+                <VBox alignment="CENTER" prefHeight="435.0" prefWidth="580.0"
+                      style="-fx-background-color: burlywood; -fx-border-color: black;">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="36.0" prefWidth="580.0" spacing="20.0">
+                            <children>
+                                <Button fx:id="redBase1" mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="redBase2" mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+
+
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+
+
+                                <Button fx:id="btnField9" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField10" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField11" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: cornflowerblue;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+
+
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+
+
+                                <Button fx:id="blueBase1" mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="blueBase2" mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="36.0" prefWidth="580.0" spacing="20.0">
+                            <children>
+                                <Button fx:id="redBase3" mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="redBase4" mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+
+
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+
+
+                                <Button fx:id="btnField8" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="blueGoal1" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField12" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+
+
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+
+
+                                <Button fx:id="blueBase3" mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="blueBase4" mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="36.0" prefWidth="580.0" spacing="20.0">
+                            <children>
+
+
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+
+
+                                <Button fx:id="btnField7" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="blueGoal2" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField13" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+
+
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+
+
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="36.0" prefWidth="580.0" spacing="20.0">
+                            <children>
+
+
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+
+
+                                <Button fx:id="btnField6" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="blueGoal3" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField14" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+
+
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+
+
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="36.0" prefWidth="580.0" spacing="20.0">
+                            <children>
+                                <Button fx:id="btnField1" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: salmon;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField2" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField3" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField4" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField5" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="blueGoal4" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: blue;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField15" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField16" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField17" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField18" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField19" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="36.0" prefWidth="580.0" spacing="20.0">
+                            <children>
+                                <Button fx:id="btnField40" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="redGoal1" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="redGoal2" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="redGoal3" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="redGoal4" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: red;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+
+
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+
+
+                                <Button fx:id="greenGoal4" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="greenGoal3" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="greenGoal2" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="greenGoal1" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField20" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="36.0" prefWidth="580.0" spacing="20.0">
+                            <children>
+                                <Button fx:id="btnField39" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitWidth="10.0" pickOnBounds="true" preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField38" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField37" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField36" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField35" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="yellowGoal4" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField25" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField24" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField23" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField22" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField21" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: lightgreen;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="36.0" prefWidth="580.0" spacing="20.0">
+                            <children>
+
+
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+
+
+                                <Button fx:id="btnField34" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="yellowGoal3" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField26" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+
+
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+
+
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="36.0" prefWidth="580.0" spacing="20.0">
+                            <children>
+
+
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+
+
+                                <Button fx:id="btnField33" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="yellowGoal2" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField27" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+
+
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+
+
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="36.0" prefWidth="580.0" spacing="20.0">
+                            <children>
+                                <Button fx:id="yellowBase1" mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="yellowBase2" mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+
+
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+
+
+                                <Button fx:id="btnField32" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="yellowGoal1" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField28" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+
+
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+
+
+                                <Button fx:id="greenBase1" mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="greenBase2" mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true" smooth="false">
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="36.0" prefWidth="580.0" spacing="20.0">
+                            <children>
+                                <Button fx:id="yellowBase3" mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="yellowBase4" mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: yellow;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+
+
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+
+
+                                <Button fx:id="btnField31" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: Lightyellow;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField30" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="btnField29" mnemonicParsing="false" onAction="#getButtonPressedNumber"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+
+
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+                                <Button mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25;"
+                                        visible="false"/>
+
+
+                                <Button fx:id="greenBase3" mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="greenBase4" mnemonicParsing="false"
+                                        style="-fx-background-radius: 20; -fx-min-height: 20; -fx-min-width: 25; -fx-background-color: green;">
+                                    <graphic>
+                                        <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true"
+                                                   preserveRatio="true">
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+        <fx:define>
+            <ArrayList fx:id="houses">
+                <!-- StartHaeuser -->
+                <fx:reference source="redBase1"/>
+                <fx:reference source="redBase2"/>
+                <fx:reference source="redBase3"/>
+                <fx:reference source="redBase4"/>
+                <fx:reference source="blueBase1"/>
+                <fx:reference source="blueBase2"/>
+                <fx:reference source="blueBase3"/>
+                <fx:reference source="blueBase4"/>
+                <fx:reference source="greenBase1"/>
+                <fx:reference source="greenBase2"/>
+                <fx:reference source="greenBase3"/>
+                <fx:reference source="greenBase4"/>
+                <fx:reference source="yellowBase1"/>
+                <fx:reference source="yellowBase2"/>
+                <fx:reference source="yellowBase3"/>
+                <fx:reference source="yellowBase4"/>
+            </ArrayList>
+        </fx:define>
+
+        <fx:define>
+            <ArrayList fx:id="fields">
+                <!-- Felder -->
+                <fx:reference source="btnField1"/>
+                <fx:reference source="btnField2"/>
+                <fx:reference source="btnField3"/>
+                <fx:reference source="btnField4"/>
+                <fx:reference source="btnField5"/>
+                <fx:reference source="btnField6"/>
+                <fx:reference source="btnField7"/>
+                <fx:reference source="btnField8"/>
+                <fx:reference source="btnField9"/>
+                <fx:reference source="btnField10"/>
+                <fx:reference source="btnField11"/>
+                <fx:reference source="btnField12"/>
+                <fx:reference source="btnField13"/>
+                <fx:reference source="btnField14"/>
+                <fx:reference source="btnField15"/>
+                <fx:reference source="btnField16"/>
+                <fx:reference source="btnField17"/>
+                <fx:reference source="btnField18"/>
+                <fx:reference source="btnField19"/>
+                <fx:reference source="btnField20"/>
+                <fx:reference source="btnField21"/>
+                <fx:reference source="btnField22"/>
+                <fx:reference source="btnField23"/>
+                <fx:reference source="btnField24"/>
+                <fx:reference source="btnField25"/>
+                <fx:reference source="btnField26"/>
+                <fx:reference source="btnField27"/>
+                <fx:reference source="btnField28"/>
+                <fx:reference source="btnField29"/>
+                <fx:reference source="btnField30"/>
+                <fx:reference source="btnField31"/>
+                <fx:reference source="btnField32"/>
+                <fx:reference source="btnField33"/>
+                <fx:reference source="btnField34"/>
+                <fx:reference source="btnField35"/>
+                <fx:reference source="btnField36"/>
+                <fx:reference source="btnField37"/>
+                <fx:reference source="btnField38"/>
+                <fx:reference source="btnField39"/>
+                <fx:reference source="btnField40"/>
+            </ArrayList>
+        </fx:define>
+
+        <fx:define>
+            <ArrayList fx:id="goals">
+                <!-- Ziele -->
+                <fx:reference source="redGoal1"/>
+                <fx:reference source="redGoal2"/>
+                <fx:reference source="redGoal3"/>
+                <fx:reference source="redGoal4"/>
+                <fx:reference source="blueGoal1"/>
+                <fx:reference source="blueGoal2"/>
+                <fx:reference source="blueGoal3"/>
+                <fx:reference source="blueGoal4"/>
+                <fx:reference source="greenGoal1"/>
+                <fx:reference source="greenGoal2"/>
+                <fx:reference source="greenGoal3"/>
+                <fx:reference source="greenGoal4"/>
+                <fx:reference source="yellowGoal1"/>
+                <fx:reference source="yellowGoal2"/>
+                <fx:reference source="yellowGoal3"/>
+                <fx:reference source="yellowGoal4"/>
+            </ArrayList>
+        </fx:define>
+
+    </children>
+</AnchorPane>
+
+

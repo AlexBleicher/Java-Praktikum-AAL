@@ -1,0 +1,35 @@
+@startuml
+'SpielManager - SpielVorbereiten'
+
+(*top) --> "Liste an Spielern die
+    zu erstellen sind holen"
+--> "Spieler aus Liste erstellen"
+partition Spieler_Erzeugen {
+--> "Farbe zuweisen"
+--> "Haus zuweisen"
+--> "Haus mit Figuren befüllen"
+--> "In Hausliste eintragen"
+}
+if "alle Spieler erstellt" then
+    --> [true] "Spielbrett erstellen"
+    --> "Spieler aus erstellten
+        Spielern holen"
+    --> "Spieler Startfeld
+        und Zielfelder zuweisen"
+        note left
+            Spieler Start- und Zielfelder beim
+            erzeugen bereits festlegen
+        end note
+        if "alle Spieler belegt" then
+            --> [true] "Zufälligen Spieler
+                als Starter auswählen"
+            --> (*)
+        else
+        --> [false] "Spieler aus erstellten
+                     Spielern holen"
+    endif
+else
+    -left-> [false] "Spieler aus Liste erstellen"
+endif
+
+@enduml
